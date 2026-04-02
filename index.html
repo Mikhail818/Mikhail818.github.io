@@ -178,6 +178,7 @@
     .kicker {
       font-family: "IBM Plex Mono", monospace;
       font-size: 0.72rem;
+      line-height: 1.4;
       letter-spacing: 0.14em;
       text-transform: uppercase;
       color: var(--accent);
@@ -185,6 +186,7 @@
 
     .brand-copy span {
       font-size: 0.96rem;
+      line-height: 1.3;
     }
 
     .nav-links,
@@ -203,6 +205,7 @@
       gap: 1.05rem;
       color: var(--muted);
       font-size: 0.92rem;
+      line-height: 1.4;
     }
 
     .nav-links a {
@@ -311,8 +314,17 @@
     .section-header h2,
     .contact-panel h2 {
       margin: 0;
-      line-height: 0.96;
-      letter-spacing: -0.06em;
+    }
+
+    .hero-copy h1 {
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+
+    .section-header h2,
+    .contact-panel h2 {
+      line-height: 1.2;
+      letter-spacing: -0.018em;
     }
 
     .hero-copy h1 {
@@ -329,7 +341,7 @@
     .contact-panel p,
     .recommendation-card p {
       color: var(--muted);
-      line-height: 1.78;
+      line-height: 1.6;
       margin: 0;
     }
 
@@ -414,6 +426,7 @@
       color: var(--text);
       font-family: "IBM Plex Mono", monospace;
       font-size: 0.74rem;
+      line-height: 1.4;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       transform: translateZ(24px);
@@ -479,6 +492,7 @@
       display: block;
       margin-top: 0.45rem;
       font-size: 1.9rem;
+      line-height: 1.1;
       letter-spacing: -0.05em;
     }
 
@@ -533,13 +547,14 @@
     .recommendation-card h3 {
       margin: 0;
       font-size: 1.18rem;
-      letter-spacing: -0.03em;
+      line-height: 1.3;
+      letter-spacing: -0.015em;
     }
 
     .work-card p,
     .simple-card p,
     .recommendation-card p {
-      margin-top: 0.65rem;
+      margin-top: 0.78rem;
       font-size: 0.95rem;
     }
 
@@ -549,14 +564,12 @@
     }
 
     .edu-logo-wrap {
-      position: absolute;
-      top: 1.3rem;
-      right: 1.3rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 5.1rem;
-      padding: 0.35rem 0.45rem;
+      width: 5.25rem;
+      flex: 0 0 auto;
+      padding: 0.32rem 0.42rem;
       border-radius: 12px;
       background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(18, 26, 38, 0.08);
@@ -632,7 +645,7 @@
       padding-top: 0.9rem;
       color: var(--text);
       font-size: 0.86rem;
-      line-height: 1.6;
+      line-height: 1.58;
       opacity: 0;
       transform: translateY(8px);
       transition:
@@ -653,7 +666,7 @@
       font-size: 0.76rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      line-height: 1.6;
+      line-height: 1.4;
     }
 
     .quote-block {
@@ -664,7 +677,7 @@
       border: 1px solid rgba(47, 95, 141, 0.12);
       color: var(--text);
       font-weight: 600;
-      line-height: 1.65;
+      line-height: 1.58;
       font-size: 1.08rem;
       letter-spacing: -0.02em;
     }
@@ -679,6 +692,7 @@
       border: 1px solid transparent;
       color: var(--accent);
       font-size: 0.84rem;
+      line-height: 1.4;
       font-weight: 600;
       transition:
         background 220ms var(--ease-premium),
@@ -696,9 +710,11 @@
       margin-top: 1.8rem;
     }
 
-    .education-card {
-      position: relative;
-      padding-right: 6.8rem;
+    .education-title {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin: 0.3rem 0 0.2rem;
     }
 
     .contact-grid {
@@ -761,6 +777,8 @@
       background: rgba(255, 255, 255, 0.9);
       display: grid;
       align-content: start;
+      align-self: start;
+      margin-top: 0.35rem;
     }
 
     .recommendation-head {
@@ -794,7 +812,7 @@
       margin: 0.28rem 0 0;
       color: var(--muted);
       font-size: 0.88rem;
-      line-height: 1.6;
+      line-height: 1.45;
     }
 
     .recommendation-actions {
@@ -806,6 +824,7 @@
       margin-top: 2.4rem;
       color: var(--muted);
       font-size: 0.86rem;
+      line-height: 1.45;
       text-align: center;
     }
 
@@ -961,14 +980,8 @@
         font-size: 1rem;
       }
 
-      .education-card {
-        padding-right: 1.15rem;
-        padding-top: 5.4rem;
-      }
-
-      .edu-logo-wrap {
-        top: 1.15rem;
-        right: 1.15rem;
+      .education-title {
+        align-items: flex-start;
       }
     }
 
@@ -1133,12 +1146,14 @@
       </div>
 
       <div class="details-grid">
-        <article class="simple-card education-card" data-reveal style="--reveal-delay: 80ms;">
+        <article class="simple-card" data-reveal style="--reveal-delay: 80ms;">
           <div class="kicker">Education</div>
-          <div class="edu-logo-wrap">
-            <img class="edu-logo" src="assets/uos-logo.jpg" alt="University of Sheffield logo">
+          <div class="education-title">
+            <h3>University of Sheffield</h3>
+            <div class="edu-logo-wrap">
+              <img class="edu-logo" src="assets/uos-logo.jpg" alt="University of Sheffield logo">
+            </div>
           </div>
-          <h3>University of Sheffield</h3>
           <p>BEng General Engineering with Year in Industry, expected First Class Honours.</p>
           <div class="detail-list">
             <span class="tag">Merit Scholarship</span>
@@ -1166,9 +1181,9 @@
       <div class="contact-grid">
         <article class="contact-panel" data-reveal>
           <div class="eyebrow">Contact</div>
-          <h2><span class="title-line">Open to engineering roles</span><span class="title-line">with operational</span><span class="title-line">depth.</span></h2>
+          <h2><span class="title-line">Open to engineering</span><span class="title-line">roles with operational</span><span class="title-line">depth.</span></h2>
           <p>
-            I’m most interested in teams where technical depth, ownership, and operational impact are expected together.
+            I’m most interested in teams where technical depth, ownership,<br>and operational impact are expected together.
           </p>
           <div class="contact-links">
             <a class="contact-link" href="mailto:mikhail.lyskov4@gmail.com">Email</a>

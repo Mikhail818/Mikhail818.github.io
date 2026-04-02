@@ -1,8 +1,19 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
   <title id="title">Mikhail Lyskov favicon</title>
-  <desc id="desc">Minimal ML monogram favicon for the portfolio.</desc>
-  <rect width="128" height="128" rx="28" fill="#f5f1ea"/>
-  <rect x="10" y="10" width="108" height="108" rx="24" fill="none" stroke="#d8dee7" stroke-width="4"/>
-  <path d="M30 36h18l16 26 16-26h18v56H84V58L70 80H58L44 58v34H30z" fill="#121a26"/>
-  <path d="M24 24h22M24 24v22M104 24H82M104 24v22M24 104h22M24 104V82M104 104H82M104 104V82" fill="none" stroke="#2f5f8d" stroke-width="4" stroke-linecap="round"/>
+  <desc id="desc">Premium monogram favicon for the portfolio.</desc>
+  <defs>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#182230"/>
+      <stop offset="100%" stop-color="#101821"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5f88b2"/>
+      <stop offset="100%" stop-color="#2f5f8d"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="30" fill="#f5f1ea"/>
+  <rect x="14" y="14" width="100" height="100" rx="26" fill="url(#panel)" stroke="#121a26" stroke-opacity="0.08"/>
+  <rect x="28" y="28" width="72" height="72" rx="18" fill="none" stroke="#f5f1ea" stroke-opacity="0.12" stroke-width="2"/>
+  <path d="M37 42h12l15 24 15-24h12v44H81V60L68 81h-8L47 60v26H37z" fill="#f5f1ea"/>
+  <path d="M28 94h72" stroke="url(#accent)" stroke-width="4" stroke-linecap="round"/>
 </svg>
