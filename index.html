@@ -256,7 +256,11 @@
     }
 
     .hero-copy {
-      max-width: 44rem;
+      max-width: 58rem;
+      margin: 0 auto;
+      text-align: center;
+      display: grid;
+      justify-items: center;
     }
 
     .hero-copy h1,
@@ -270,7 +274,8 @@
     .hero-copy h1 {
       margin-top: 0.85rem;
       font-size: clamp(3.6rem, 6vw, 5.8rem);
-      max-width: 9ch;
+      max-width: 12ch;
+      text-wrap: balance;
     }
 
     .hero-copy p,
@@ -285,12 +290,13 @@
 
     .hero-copy p {
       margin-top: 1.15rem;
-      max-width: 42rem;
+      max-width: 46rem;
       font-size: 1.02rem;
     }
 
     .hero-actions {
       margin-top: 1.4rem;
+      justify-content: center;
     }
 
     .hero-media {
@@ -566,6 +572,7 @@
 
       .hero-copy h1 {
         font-size: clamp(2.3rem, 10vw, 3.5rem);
+        max-width: 13ch;
       }
 
       .hero-copy p {
