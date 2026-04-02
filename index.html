@@ -14,6 +14,7 @@
     href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
     rel="stylesheet"
   >
+  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.74/build/spline-viewer.js"></script>
   <style>
     :root {
       --bg: #040812;
@@ -105,11 +106,21 @@
       isolation: isolate;
     }
 
+    .network-canvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: -2;
+      opacity: 0.95;
+    }
+
     .ambient-beam,
     .ambient-ring {
       position: fixed;
       pointer-events: none;
-      z-index: -2;
+      z-index: -1;
     }
 
     .ambient-beam {
@@ -472,6 +483,67 @@
     .hero-stack {
       display: grid;
       gap: 1rem;
+    }
+
+    .spline-card {
+      padding: 0;
+      min-height: 26rem;
+    }
+
+    .spline-head {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      right: 1rem;
+      z-index: 2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      pointer-events: none;
+    }
+
+    .spline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      min-height: 2rem;
+      padding: 0 0.7rem;
+      border-radius: 999px;
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      color: #d9f9ff;
+      background: rgba(3, 10, 19, 0.68);
+      border: 1px solid rgba(105, 232, 255, 0.16);
+      box-shadow: 0 0 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .spline-badge::before {
+      content: "";
+      width: 0.42rem;
+      height: 0.42rem;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 10px rgba(105, 232, 255, 0.38);
+    }
+
+    .spline-shell {
+      height: 100%;
+      min-height: 26rem;
+      border-radius: inherit;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 18%, rgba(105, 232, 255, 0.14), transparent 22%),
+        radial-gradient(circle at 80% 80%, rgba(255, 184, 106, 0.12), transparent 20%),
+        linear-gradient(180deg, rgba(6, 14, 27, 0.92), rgba(3, 8, 16, 0.98));
+    }
+
+    spline-viewer {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 26rem;
+      background: transparent;
     }
 
     .mission-card {
@@ -1070,6 +1142,12 @@
         font-size: clamp(3rem, 16vw, 4.8rem);
       }
 
+      .spline-card,
+      .spline-shell,
+      spline-viewer {
+        min-height: 21rem;
+      }
+
       .achievements-grid,
       .projects-grid,
       .hero-system-grid,
@@ -1090,6 +1168,7 @@
 </head>
 <body>
   <div class="progress" aria-hidden="true"></div>
+  <canvas class="network-canvas" id="network-canvas" aria-hidden="true"></canvas>
   <div class="page-shell">
     <div class="ambient-beam" aria-hidden="true"></div>
     <div class="ambient-ring" aria-hidden="true"></div>
@@ -1148,6 +1227,16 @@
           </div>
 
           <div class="hero-stack reveal visible">
+            <article class="spline-card tech-card">
+              <div class="spline-head">
+                <div class="panel-label">Robotics Interface</div>
+                <div class="spline-badge">Spline active</div>
+              </div>
+              <div class="spline-shell">
+                <spline-viewer url="https://prod.spline.design/nJ5JqmtvZOQPo0Vx/scene.splinecode"></spline-viewer>
+              </div>
+            </article>
+
             <article class="mission-card tech-card">
               <div class="mission-top">
                 <div>
@@ -1607,6 +1696,7 @@
     const tabButtons = document.querySelectorAll(".tab-button");
     const consoleLines = document.querySelectorAll("#console-lines li");
     const ambientRing = document.querySelector(".ambient-ring");
+    const networkCanvas = document.getElementById("network-canvas");
 
     const focusContent = {
       capital: {
@@ -1738,6 +1828,108 @@
       }
     }
 
+    function initNetworkEffect() {
+      if (!networkCanvas) {
+        return;
+      }
+
+      const context = networkCanvas.getContext("2d");
+      if (!context) {
+        return;
+      }
+
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const points = [];
+      let width = 0;
+      let height = 0;
+      let animationFrame = 0;
+      const pointCount = window.innerWidth < 760 ? 24 : 42;
+
+      function resizeCanvas() {
+        const ratio = Math.min(window.devicePixelRatio || 1, 2);
+        width = window.innerWidth;
+        height = window.innerHeight;
+        networkCanvas.width = width * ratio;
+        networkCanvas.height = height * ratio;
+        context.setTransform(ratio, 0, 0, ratio, 0, 0);
+      }
+
+      function seedPoints() {
+        points.length = 0;
+        for (let index = 0; index < pointCount; index += 1) {
+          points.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            vx: (Math.random() - 0.5) * (reducedMotion ? 0.06 : 0.22),
+            vy: (Math.random() - 0.5) * (reducedMotion ? 0.06 : 0.22),
+            radius: Math.random() * 1.8 + 0.8
+          });
+        }
+      }
+
+      function draw() {
+        context.clearRect(0, 0, width, height);
+
+        for (let index = 0; index < points.length; index += 1) {
+          const point = points[index];
+
+          point.x += point.vx;
+          point.y += point.vy;
+
+          if (point.x <= 0 || point.x >= width) {
+            point.vx *= -1;
+          }
+          if (point.y <= 0 || point.y >= height) {
+            point.vy *= -1;
+          }
+
+          context.beginPath();
+          context.fillStyle = "rgba(105, 232, 255, 0.8)";
+          context.shadowBlur = 12;
+          context.shadowColor = "rgba(105, 232, 255, 0.18)";
+          context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
+          context.fill();
+        }
+
+        context.shadowBlur = 0;
+
+        for (let i = 0; i < points.length; i += 1) {
+          for (let j = i + 1; j < points.length; j += 1) {
+            const a = points[i];
+            const b = points[j];
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            if (distance > 170) {
+              continue;
+            }
+
+            const alpha = 1 - distance / 170;
+            context.beginPath();
+            context.strokeStyle = "rgba(105, 232, 255, " + (alpha * 0.16) + ")";
+            context.lineWidth = alpha * 1.1;
+            context.moveTo(a.x, a.y);
+            context.lineTo(b.x, b.y);
+            context.stroke();
+          }
+        }
+
+        animationFrame = window.requestAnimationFrame(draw);
+      }
+
+      resizeCanvas();
+      seedPoints();
+      draw();
+
+      window.addEventListener("resize", () => {
+        window.cancelAnimationFrame(animationFrame);
+        resizeCanvas();
+        seedPoints();
+        draw();
+      });
+    }
+
     tabButtons.forEach((button) => {
       button.addEventListener("click", () => {
         tabButtons.forEach((item) => {
@@ -1759,6 +1951,7 @@
       }, 1700);
     }
 
+    initNetworkEffect();
     updateProgress();
     window.addEventListener("scroll", updateProgress, { passive: true });
   </script>
