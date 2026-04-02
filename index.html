@@ -548,6 +548,24 @@
       margin-top: 0.95rem;
     }
 
+    .edu-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      max-width: min(100%, 18.5rem);
+      margin: 0.3rem 0 0.9rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 14px;
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid rgba(18, 26, 38, 0.08);
+    }
+
+    .edu-logo {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
     .work-card {
       display: grid;
       gap: 0.2rem;
@@ -1095,6 +1113,9 @@
       <div class="details-grid">
         <article class="simple-card" data-reveal style="--reveal-delay: 80ms;">
           <div class="kicker">Education</div>
+          <div class="edu-logo-wrap">
+            <img class="edu-logo" src="assets/uos-logo.jpg" alt="University of Sheffield logo">
+          </div>
           <h3>University of Sheffield</h3>
           <p>BEng General Engineering with Year in Industry, expected First Class Honours.</p>
           <div class="detail-list">
@@ -1123,7 +1144,7 @@
       <div class="contact-grid">
         <article class="contact-panel" data-reveal>
           <div class="eyebrow">Contact</div>
-          <h2>Open to engineering roles with operational depth.</h2>
+          <h2>Open to engineering roles<br>with operational<br>depth.</h2>
           <p>
             I’m most interested in teams where technical depth, ownership, and operational impact are expected together.
           </p>
