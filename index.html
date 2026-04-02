@@ -318,7 +318,7 @@
     .hero-copy h1 {
       margin-top: 0.85rem;
       font-size: clamp(3.15rem, 5.8vw, 5.15rem);
-      max-width: 13ch;
+      max-width: 16ch;
       text-wrap: balance;
     }
 
@@ -500,7 +500,7 @@
 
     .section-header h2 {
       font-size: clamp(2rem, 4vw, 3.2rem);
-      max-width: 12ch;
+      max-width: 14ch;
     }
 
     .section-header p {
@@ -508,8 +508,8 @@
     }
 
     .work-grid {
-      grid-template-columns: 1.15fr 1fr 1fr;
-      align-items: start;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      align-items: stretch;
     }
 
     .details-grid,
@@ -552,12 +552,12 @@
     }
 
     .work-card.featured {
-      grid-column: span 2;
-      padding: 1.55rem;
+      grid-column: span 1;
+      padding: 1.4rem;
     }
 
     .work-card.offset {
-      margin-top: 2rem;
+      margin-top: 0;
     }
 
     .work-preview {
@@ -573,6 +573,24 @@
         border-color 320ms var(--ease-premium),
         box-shadow 320ms var(--ease-premium);
       isolation: isolate;
+    }
+
+    .work-preview video {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(0.92) contrast(1.04);
+    }
+
+    .preview-video::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(180deg, rgba(9, 14, 20, 0.04), rgba(9, 14, 20, 0.24)),
+        linear-gradient(135deg, rgba(47, 95, 141, 0.08), transparent 42%);
+      pointer-events: none;
     }
 
     .work-card:hover .work-preview,
@@ -739,11 +757,6 @@
       border-color: rgba(47, 95, 141, 0.08);
     }
 
-    .tag.more-tag {
-      background: rgba(18, 26, 38, 0.05);
-      color: var(--muted);
-    }
-
     .simple-card.shifted {
       margin-top: 1.8rem;
     }
@@ -797,6 +810,8 @@
 
     .recommendation-card {
       background: rgba(255, 255, 255, 0.9);
+      display: grid;
+      align-content: start;
     }
 
     .recommendation-head {
@@ -831,6 +846,11 @@
       color: var(--muted);
       font-size: 0.88rem;
       line-height: 1.6;
+    }
+
+    .recommendation-actions {
+      margin-top: auto;
+      padding-top: 1rem;
     }
 
     .footer-note {
@@ -943,7 +963,7 @@
 
       .hero-copy h1 {
         font-size: clamp(2.15rem, 8vw, 3rem);
-        max-width: 14ch;
+        max-width: 16ch;
       }
 
       .hero-copy p {
@@ -1092,40 +1112,52 @@
 
       <div class="work-grid">
         <article class="work-card featured" data-reveal style="--reveal-delay: 80ms;">
-          <div class="work-preview preview-delivery" aria-hidden="true"></div>
+          <div class="work-preview preview-video">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Business team brainstorming video preview">
+              <source src="assets/work-team.mp4" type="video/mp4">
+            </video>
+          </div>
           <div class="kicker">INVISTA</div>
           <h3>Delivered £100k+ engineering projects</h3>
           <p>Supported budget, schedule, and decision quality across international engineering workstreams.</p>
           <div class="tag-list">
             <span class="tag">Budgets</span>
             <span class="tag">Timelines</span>
-            <span class="tag more-tag">+1 more</span>
+            <span class="tag">Risk</span>
           </div>
           <div class="work-extra">Cross-functional coordination, risk framing, and vendor-facing delivery in a live operational setting.</div>
         </article>
 
         <article class="work-card offset" data-reveal style="--reveal-delay: 160ms;">
-          <div class="work-preview preview-reporting" aria-hidden="true"></div>
+          <div class="work-preview preview-video">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Animated dashboard video preview">
+              <source src="assets/work-dashboards.mp4" type="video/mp4">
+            </video>
+          </div>
           <div class="kicker">Digital Systems</div>
           <h3>Built reporting tools used across 3 sites</h3>
           <p>Created dashboards and Power Apps that reduced reporting friction and improved operational visibility.</p>
           <div class="tag-list">
             <span class="tag">Power Platform</span>
             <span class="tag">Power BI</span>
-            <span class="tag more-tag">+1 more</span>
+            <span class="tag">Excel</span>
           </div>
           <div class="work-extra">Structured data flows and operator-facing tools designed for day-to-day use, not just presentation.</div>
         </article>
 
         <article class="work-card" data-reveal style="--reveal-delay: 220ms;">
-          <div class="work-preview preview-reliability" aria-hidden="true"></div>
+          <div class="work-preview preview-video">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Business team discussion video preview">
+              <source src="assets/work-team.mp4" type="video/mp4">
+            </video>
+          </div>
           <div class="kicker">Reliability</div>
           <h3>Improved reliability in live manufacturing settings</h3>
           <p>Worked on preventive maintenance, fault diagnosis, and operator support close to the plant floor.</p>
           <div class="tag-list">
             <span class="tag">Maintenance</span>
             <span class="tag">LoRaWAN</span>
-            <span class="tag more-tag">+1 more</span>
+            <span class="tag">Asset support</span>
           </div>
           <div class="work-extra">From condition awareness to practical support, the focus stayed on repeatable performance under real constraints.</div>
         </article>
@@ -1150,7 +1182,7 @@
             <span class="tag">Merit Scholarship</span>
             <span class="tag">2x Excellence Award</span>
             <span class="tag">Manufacturing Systems</span>
-            <span class="tag more-tag">+1 more</span>
+            <span class="tag">Power Engineering</span>
           </div>
         </article>
 
@@ -1162,7 +1194,7 @@
             <span class="tag">MATLAB/Simulink</span>
             <span class="tag">Python</span>
             <span class="tag">Power Apps</span>
-            <span class="tag more-tag">+3 more</span>
+            <span class="tag">Siemens PLC</span>
           </div>
         </article>
       </div>
@@ -1198,10 +1230,8 @@
             Warren Cresswell provided this recommendation after my placement, describing my contribution in a demanding operational environment with strong professionalism and technical maturity.
           </p>
           <div class="quote-block">“approachable, calm under pressure, and a great team player.”</div>
-          <div class="reference-meta">
-            Warren Cresswell<br>
-            Asset Performance Leader • INVISTA UK<br>
-            Formal recommendation letter linked on the left
+          <div class="recommendation-actions">
+            <a class="contact-link" href="assets/ML_Recommendation_Letter.pdf" target="_blank" rel="noreferrer">Read recommendation</a>
           </div>
         </article>
       </div>
