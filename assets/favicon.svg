@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title desc">
+  <title id="title">Mikhail Lyskov favicon</title>
+  <desc id="desc">Monogram ML in a futuristic engineering frame.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07101d"/>
+      <stop offset="100%" stop-color="#040812"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#69e8ff"/>
+      <stop offset="100%" stop-color="#ffb86a"/>
+    </linearGradient>
+  </defs>
+  <rect width="128" height="128" rx="28" fill="url(#bg)"/>
+  <path d="M20 40h28l16 24 16-24h28v48h-18V59L80 82H48L38 59v29H20z" fill="#eef5ff"/>
+  <path d="M18 18h34M18 18v34M110 18H76M110 18v34M18 110h34M18 110V76M110 110H76M110 110V76" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
+</svg>
