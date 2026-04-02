@@ -549,14 +549,16 @@
     }
 
     .edu-logo-wrap {
+      position: absolute;
+      top: 1.3rem;
+      right: 1.3rem;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      max-width: min(100%, 18.5rem);
-      margin: 0.3rem 0 0.9rem;
-      padding: 0.55rem 0.75rem;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.9);
+      width: 5.1rem;
+      padding: 0.35rem 0.45rem;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.92);
       border: 1px solid rgba(18, 26, 38, 0.08);
     }
 
@@ -694,6 +696,11 @@
       margin-top: 1.8rem;
     }
 
+    .education-card {
+      position: relative;
+      padding-right: 6.8rem;
+    }
+
     .contact-grid {
       grid-template-columns: minmax(0, 1.02fr) minmax(0, 0.98fr);
       gap: 1.35rem;
@@ -712,7 +719,12 @@
     }
 
     #contact .contact-panel h2 {
-      max-width: 7.9ch;
+      max-width: none;
+    }
+
+    .title-line {
+      display: block;
+      white-space: nowrap;
     }
 
     .contact-links {
@@ -948,6 +960,16 @@
       .quote-block {
         font-size: 1rem;
       }
+
+      .education-card {
+        padding-right: 1.15rem;
+        padding-top: 5.4rem;
+      }
+
+      .edu-logo-wrap {
+        top: 1.15rem;
+        right: 1.15rem;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -1111,7 +1133,7 @@
       </div>
 
       <div class="details-grid">
-        <article class="simple-card" data-reveal style="--reveal-delay: 80ms;">
+        <article class="simple-card education-card" data-reveal style="--reveal-delay: 80ms;">
           <div class="kicker">Education</div>
           <div class="edu-logo-wrap">
             <img class="edu-logo" src="assets/uos-logo.jpg" alt="University of Sheffield logo">
@@ -1144,7 +1166,7 @@
       <div class="contact-grid">
         <article class="contact-panel" data-reveal>
           <div class="eyebrow">Contact</div>
-          <h2>Open to engineering roles<br>with operational<br>depth.</h2>
+          <h2><span class="title-line">Open to engineering roles</span><span class="title-line">with operational</span><span class="title-line">depth.</span></h2>
           <p>
             I’m most interested in teams where technical depth, ownership, and operational impact are expected together.
           </p>
