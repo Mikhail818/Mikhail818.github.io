@@ -396,7 +396,7 @@
       margin-top: -2rem;
       padding-top: 2.8rem;
       padding-bottom: 3rem;
-      min-height: 54rem;
+      min-height: 52rem;
     }
 
     .hero-spline-field {
@@ -404,9 +404,9 @@
       top: 0;
       left: calc(50% - 50vw);
       width: 100vw;
-      height: 42rem;
+      height: 46rem;
       z-index: 0;
-      pointer-events: none;
+      pointer-events: auto;
       mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 58%, transparent 100%);
       -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 58%, transparent 100%);
     }
@@ -426,16 +426,18 @@
     .hero-spline-shell {
       position: absolute;
       inset: 0;
-      transform: scale(1.42) translateY(-4.4rem);
+      transform: scale(1.58) translateY(-6.2rem);
       transform-origin: center top;
       filter: saturate(1.08) brightness(1.02);
+      pointer-events: auto;
     }
 
     .hero-spline-shell spline-viewer {
       width: 100%;
       height: 100%;
-      min-height: 42rem;
+      min-height: 46rem;
       background: transparent;
+      pointer-events: auto;
     }
 
     .hero-spline-meta {
@@ -456,7 +458,7 @@
       align-items: stretch;
       position: relative;
       z-index: 2;
-      padding-top: 15rem;
+      padding-top: 13rem;
     }
 
     .hero-copy {
@@ -464,8 +466,8 @@
     }
 
     .hero-copy h1 {
-      font-size: clamp(2.2rem, 4vw, 3.8rem);
-      max-width: 10.5ch;
+      font-size: clamp(1.45rem, 2.3vw, 2.35rem);
+      max-width: 12ch;
     }
 
     .hero-copy .muted-line {
@@ -474,9 +476,9 @@
     }
 
     .hero-copy p {
-      max-width: 62ch;
+      max-width: 50ch;
       margin-top: 1.35rem;
-      font-size: 1.06rem;
+      font-size: 0.98rem;
     }
 
     .hero-actions {
@@ -1169,7 +1171,7 @@
       }
 
       .hero-copy h1 {
-        font-size: clamp(1.9rem, 7vw, 2.8rem);
+        font-size: clamp(1.25rem, 4.8vw, 1.85rem);
       }
 
       .hero {
@@ -1180,15 +1182,15 @@
         top: 0;
         left: calc(50% - 50vw);
         width: 100vw;
-        height: 22rem;
+        height: 24rem;
       }
 
       .hero-spline-shell {
-        transform: scale(1.5) translateY(-2.8rem);
+        transform: scale(1.62) translateY(-3.4rem);
       }
 
       .hero-spline-shell spline-viewer {
-        min-height: 22rem;
+        min-height: 24rem;
       }
 
       .hero-spline-meta {
@@ -1197,7 +1199,7 @@
       }
 
       .hero-grid {
-        padding-top: 9rem;
+        padding-top: 8rem;
       }
 
       .achievements-grid,
@@ -1266,12 +1268,12 @@
           <div class="hero-copy reveal visible">
             <div class="eyebrow">Future-facing engineering</div>
             <h1>
-              Engineering for
-              <span class="muted-line">complex operations</span>
+              Projects, data, reliability
+              <span class="muted-line">for modern industrial systems</span>
             </h1>
             <p>
               I’m Mikhail Lyskov, a General Engineering student at the University of Sheffield with industry experience at INVISTA,
-              focused on project delivery, automation, asset reliability, and practical systems that work in the real world.
+              focused on building practical engineering systems across delivery, automation, and asset performance.
             </p>
 
             <div class="hero-actions">
