@@ -391,7 +391,59 @@
     }
 
     .hero {
+      position: relative;
+      overflow: hidden;
       padding-top: 4.2rem;
+      padding-bottom: 3rem;
+      min-height: 56rem;
+    }
+
+    .hero-spline-field {
+      position: absolute;
+      inset: -4rem -6rem auto -6rem;
+      height: 52rem;
+      z-index: 0;
+      pointer-events: none;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 58%, transparent 100%);
+      -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 58%, transparent 100%);
+    }
+
+    .hero-spline-field::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background:
+        radial-gradient(circle at 68% 34%, rgba(105, 232, 255, 0.16), transparent 24%),
+        radial-gradient(circle at 30% 18%, rgba(255, 184, 106, 0.08), transparent 24%),
+        linear-gradient(180deg, rgba(4, 8, 18, 0.28), rgba(4, 8, 18, 0.72) 78%, rgba(4, 8, 18, 0.96));
+    }
+
+    .hero-spline-shell {
+      position: absolute;
+      inset: 0;
+      transform: scale(1.28) translateY(-1.4rem);
+      transform-origin: center top;
+      filter: saturate(1.08) brightness(1.02);
+    }
+
+    .hero-spline-shell spline-viewer {
+      width: 100%;
+      height: 100%;
+      min-height: 52rem;
+      background: transparent;
+    }
+
+    .hero-spline-meta {
+      position: absolute;
+      top: 6.5rem;
+      right: 2rem;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      pointer-events: none;
     }
 
     .hero-grid {
@@ -399,6 +451,8 @@
       grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
       gap: 1.25rem;
       align-items: stretch;
+      position: relative;
+      z-index: 2;
     }
 
     .hero-copy {
@@ -485,24 +539,6 @@
       gap: 1rem;
     }
 
-    .spline-card {
-      padding: 0;
-      min-height: 26rem;
-    }
-
-    .spline-head {
-      position: absolute;
-      top: 1rem;
-      left: 1rem;
-      right: 1rem;
-      z-index: 2;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-      pointer-events: none;
-    }
-
     .spline-badge {
       display: inline-flex;
       align-items: center;
@@ -527,22 +563,10 @@
       box-shadow: 0 0 10px rgba(105, 232, 255, 0.38);
     }
 
-    .spline-shell {
-      height: 100%;
-      min-height: 26rem;
-      border-radius: inherit;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 20% 18%, rgba(105, 232, 255, 0.14), transparent 22%),
-        radial-gradient(circle at 80% 80%, rgba(255, 184, 106, 0.12), transparent 20%),
-        linear-gradient(180deg, rgba(6, 14, 27, 0.92), rgba(3, 8, 16, 0.98));
-    }
-
     spline-viewer {
       display: block;
       width: 100%;
       height: 100%;
-      min-height: 26rem;
       background: transparent;
     }
 
@@ -651,6 +675,8 @@
       grid-template-columns: 1.12fr 0.88fr;
       gap: 1.25rem;
       margin-top: 1.2rem;
+      position: relative;
+      z-index: 2;
     }
 
     .telemetry-card,
@@ -1142,10 +1168,26 @@
         font-size: clamp(3rem, 16vw, 4.8rem);
       }
 
-      .spline-card,
-      .spline-shell,
-      spline-viewer {
-        min-height: 21rem;
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-spline-field {
+        inset: -2rem -5rem auto -5rem;
+        height: 28rem;
+      }
+
+      .hero-spline-shell {
+        transform: scale(1.36) translateY(-0.8rem);
+      }
+
+      .hero-spline-shell spline-viewer {
+        min-height: 28rem;
+      }
+
+      .hero-spline-meta {
+        top: 5.2rem;
+        right: 1rem;
       }
 
       .achievements-grid,
@@ -1200,6 +1242,16 @@
 
     <main id="top">
       <section class="hero">
+        <div class="hero-spline-field" aria-hidden="true">
+          <div class="hero-spline-meta">
+            <div class="panel-label">Robotics Interface</div>
+            <div class="spline-badge">Spline active</div>
+          </div>
+          <div class="hero-spline-shell">
+            <spline-viewer url="https://prod.spline.design/nJ5JqmtvZOQPo0Vx/scene.splinecode"></spline-viewer>
+          </div>
+        </div>
+
         <div class="hero-grid">
           <div class="hero-copy reveal visible">
             <div class="eyebrow">Future-facing engineering</div>
@@ -1227,16 +1279,6 @@
           </div>
 
           <div class="hero-stack reveal visible">
-            <article class="spline-card tech-card">
-              <div class="spline-head">
-                <div class="panel-label">Robotics Interface</div>
-                <div class="spline-badge">Spline active</div>
-              </div>
-              <div class="spline-shell">
-                <spline-viewer url="https://prod.spline.design/nJ5JqmtvZOQPo0Vx/scene.splinecode"></spline-viewer>
-              </div>
-            </article>
-
             <article class="mission-card tech-card">
               <div class="mission-top">
                 <div>
@@ -1840,6 +1882,11 @@
 
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const points = [];
+      const pointer = {
+        x: 0,
+        y: 0,
+        active: false
+      };
       let width = 0;
       let height = 0;
       let animationFrame = 0;
@@ -1869,12 +1916,27 @@
 
       function draw() {
         context.clearRect(0, 0, width, height);
+        const lowerBandStart = height * 0.48;
+        const lowerBandActive = pointer.active && pointer.y >= lowerBandStart;
 
         for (let index = 0; index < points.length; index += 1) {
           const point = points[index];
 
           point.x += point.vx;
           point.y += point.vy;
+
+          if (lowerBandActive) {
+            const dxPointer = pointer.x - point.x;
+            const dyPointer = pointer.y - point.y;
+            const pointerDistance = Math.sqrt(dxPointer * dxPointer + dyPointer * dyPointer);
+            const interactionRadius = 210;
+
+            if (pointerDistance < interactionRadius && pointerDistance > 0) {
+              const force = (1 - pointerDistance / interactionRadius) * (reducedMotion ? 0.12 : 0.45);
+              point.x -= (dxPointer / pointerDistance) * force;
+              point.y -= (dyPointer / pointerDistance) * force;
+            }
+          }
 
           if (point.x <= 0 || point.x >= width) {
             point.vx *= -1;
@@ -1893,6 +1955,14 @@
 
         context.shadowBlur = 0;
 
+        if (lowerBandActive) {
+          const bandAlpha = Math.min((pointer.y - lowerBandStart) / (height - lowerBandStart), 1);
+          context.beginPath();
+          context.fillStyle = "rgba(105, 232, 255, " + (bandAlpha * 0.08) + ")";
+          context.arc(pointer.x, pointer.y, 110, 0, Math.PI * 2);
+          context.fill();
+        }
+
         for (let i = 0; i < points.length; i += 1) {
           for (let j = i + 1; j < points.length; j += 1) {
             const a = points[i];
@@ -1901,18 +1971,39 @@
             const dy = a.y - b.y;
             const distance = Math.sqrt(dx * dx + dy * dy);
 
-            if (distance > 170) {
+            const maxDistance = lowerBandActive ? 190 : 170;
+            if (distance > maxDistance) {
               continue;
             }
 
-            const alpha = 1 - distance / 170;
+            const alpha = 1 - distance / maxDistance;
             context.beginPath();
-            context.strokeStyle = "rgba(105, 232, 255, " + (alpha * 0.16) + ")";
+            context.strokeStyle = "rgba(105, 232, 255, " + (alpha * (lowerBandActive ? 0.22 : 0.16)) + ")";
             context.lineWidth = alpha * 1.1;
             context.moveTo(a.x, a.y);
             context.lineTo(b.x, b.y);
             context.stroke();
           }
+        }
+
+        if (lowerBandActive) {
+          points.forEach((point) => {
+            const dxPointer = pointer.x - point.x;
+            const dyPointer = pointer.y - point.y;
+            const distance = Math.sqrt(dxPointer * dxPointer + dyPointer * dyPointer);
+
+            if (distance > 150) {
+              return;
+            }
+
+            const alpha = 1 - distance / 150;
+            context.beginPath();
+            context.strokeStyle = "rgba(255, 184, 106, " + (alpha * 0.24) + ")";
+            context.lineWidth = alpha;
+            context.moveTo(pointer.x, pointer.y);
+            context.lineTo(point.x, point.y);
+            context.stroke();
+          });
         }
 
         animationFrame = window.requestAnimationFrame(draw);
@@ -1927,6 +2018,30 @@
         resizeCanvas();
         seedPoints();
         draw();
+      });
+
+      window.addEventListener("mousemove", (event) => {
+        pointer.x = event.clientX;
+        pointer.y = event.clientY;
+        pointer.active = true;
+      });
+
+      window.addEventListener("mouseleave", () => {
+        pointer.active = false;
+      });
+
+      window.addEventListener("touchmove", (event) => {
+        const touch = event.touches[0];
+        if (!touch) {
+          return;
+        }
+        pointer.x = touch.clientX;
+        pointer.y = touch.clientY;
+        pointer.active = true;
+      }, { passive: true });
+
+      window.addEventListener("touchend", () => {
+        pointer.active = false;
       });
     }
 
