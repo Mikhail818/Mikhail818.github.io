@@ -565,9 +565,6 @@
       overflow: hidden;
       aspect-ratio: 16 / 10;
       margin-bottom: 1rem;
-      padding: 0.85rem;
-      display: grid;
-      place-items: center;
       border-radius: 16px;
       border: 1px solid rgba(255, 255, 255, 0.14);
       background:
@@ -584,11 +581,8 @@
       display: block;
       width: 100%;
       height: 100%;
-      max-width: 92%;
-      max-height: 88%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
-      border-radius: 12px;
       filter: saturate(0.92) contrast(1.04);
     }
 
@@ -1030,8 +1024,8 @@
       <div class="work-grid">
         <article class="work-card featured" data-reveal style="--reveal-delay: 80ms;">
           <div class="work-preview preview-video">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="Business team brainstorming video preview">
-              <source src="assets/work-team.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Custom report video preview">
+              <source src="assets/work-report.mp4" type="video/mp4">
             </video>
           </div>
           <div class="kicker">INVISTA</div>
@@ -1064,8 +1058,8 @@
 
         <article class="work-card" data-reveal style="--reveal-delay: 220ms;">
           <div class="work-preview preview-video">
-            <video autoplay muted loop playsinline preload="metadata" aria-label="Custom report video preview">
-              <source src="assets/work-report.mp4" type="video/mp4">
+            <video autoplay muted loop playsinline preload="metadata" aria-label="Business team discussion video preview">
+              <source src="assets/work-team.mp4" type="video/mp4">
             </video>
           </div>
           <div class="kicker">Reliability</div>
