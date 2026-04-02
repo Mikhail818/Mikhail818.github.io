@@ -9,7 +9,7 @@
   <meta name="theme-color" content="#f5f1ea">
   <meta
     name="description"
-    content="Engineering portfolio of Mikhail Lyskov, University of Sheffield General Engineering student focused on manufacturing systems, project delivery, automation, and reliability."
+    content="Engineering portfolio of Mikhail Lyskov, University of Sheffield General Engineering student focused on manufacturing systems, project delivery, automation, power engineering, and reliability."
   >
   <meta
     name="keywords"
@@ -19,7 +19,7 @@
   <meta property="og:title" content="Mikhail Lyskov | Engineering Portfolio">
   <meta
     property="og:description"
-    content="Engineering portfolio of Mikhail Lyskov, University of Sheffield General Engineering student focused on manufacturing systems, project delivery, automation, and reliability."
+    content="Engineering portfolio of Mikhail Lyskov, University of Sheffield General Engineering student focused on manufacturing systems, project delivery, automation, power engineering, and reliability."
   >
   <meta property="og:image" content="assets/og-preview.svg">
   <meta property="og:image:type" content="image/svg+xml">
@@ -28,7 +28,7 @@
   <meta name="twitter:title" content="Mikhail Lyskov | Engineering Portfolio">
   <meta
     name="twitter:description"
-    content="Engineering portfolio of Mikhail Lyskov, University of Sheffield General Engineering student focused on manufacturing systems, project delivery, automation, and reliability."
+    content="Engineering portfolio of Mikhail Lyskov, University of Sheffield General Engineering student focused on manufacturing systems, project delivery, automation, power engineering, and reliability."
   >
   <meta name="twitter:image" content="assets/og-preview.svg">
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -55,7 +55,7 @@
         "https://github.com/Mikhail818"
       ],
       "knowsLanguage": ["English", "Greek", "Russian"],
-      "description": "Engineering student focused on manufacturing systems, project delivery, automation, and asset reliability."
+      "description": "Engineering student focused on manufacturing systems, project delivery, automation, power engineering, and asset reliability."
     }
   </script>
   <style>
@@ -140,15 +140,22 @@
     }
 
     .brand-mark {
-      display: grid;
-      place-items: center;
+      display: block;
       width: 2.7rem;
       height: 2.7rem;
       border-radius: 20px;
-      background: var(--text);
-      color: #fff;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.9rem;
+      overflow: hidden;
+      background: linear-gradient(180deg, #efe7dc, #ddd1c1);
+      border: 1px solid rgba(18, 26, 38, 0.1);
+      box-shadow: 0 10px 22px rgba(18, 26, 38, 0.08);
+    }
+
+    .brand-mark img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
     }
 
     .brand-copy {
@@ -604,7 +611,7 @@
   <header class="site-header">
     <nav class="nav">
       <a class="brand" href="#top" aria-label="Go to top">
-        <span class="brand-mark">ML</span>
+        <span class="brand-mark"><img src="assets/profile.png" alt="Portrait of Mikhail Lyskov"></span>
         <span class="brand-copy">
           <small>Engineering Portfolio</small>
           <span>Mikhail Lyskov</span>
@@ -632,8 +639,8 @@
         <h1>Engineering systems that improve how operations run.</h1>
         <p>
           I’m Mikhail Lyskov, a University of Sheffield engineering student with industry experience at INVISTA across
-          project delivery, automation, and asset reliability. My focus is practical engineering that improves visibility,
-          performance, and decision-making in real operating environments.
+          project delivery, automation, and asset reliability. My background combines manufacturing systems, power engineering,
+          and fault diagnosis with a practical focus on improving visibility, performance, and decision-making in real operations.
         </p>
 
         <div class="hero-actions">
@@ -726,23 +733,26 @@
         <article class="simple-card">
           <div class="kicker">Education</div>
           <h3>University of Sheffield</h3>
-          <p>BEng General Engineering with Year in Industry, expected First Class Honours.</p>
+          <p>BEng General Engineering with Year in Industry, expected First Class Honours, with a focus on manufacturing systems, energy, and applied analysis.</p>
           <div class="detail-list">
             <span class="tag">International Merit Scholarship</span>
             <span class="tag">2x Engineering Excellence Award</span>
+            <span class="tag">Manufacturing Systems</span>
             <span class="tag">Power Engineering</span>
           </div>
         </article>
 
         <article class="simple-card">
-          <div class="kicker">Tools</div>
-          <h3>Technical stack</h3>
-          <p>Python, MATLAB, Excel, Power BI, Power Apps, basic SQL, Siemens PLC programming.</p>
+          <div class="kicker">Technical Focus</div>
+          <h3>Analysis, controls, and engineering software</h3>
+          <p>Experience with MATLAB/Simulink, Python, Siemens controls, Power Platform tools, and engineering software used for design, analysis, and manufacturing work.</p>
           <div class="detail-list">
+            <span class="tag">MATLAB/Simulink</span>
             <span class="tag">Python</span>
-            <span class="tag">MATLAB</span>
             <span class="tag">Power Apps</span>
-            <span class="tag">PLC</span>
+            <span class="tag">Siemens PLC</span>
+            <span class="tag">Ansys</span>
+            <span class="tag">Fusion 360</span>
           </div>
         </article>
       </div>
@@ -769,13 +779,13 @@
           <div class="kicker">Recommendation</div>
           <h3>From my internship supervisor</h3>
           <p>
-            Warren Cresswell, Asset Performance Leader at INVISTA UK, described me as technically strong, reliable, and effective under pressure during my placement.
+            Warren Cresswell, Asset Performance Leader at INVISTA UK, provided this recommendation following my placement. He emphasised my technical capability, professionalism, and ability to contribute effectively in a demanding operational environment.
           </p>
-          <div class="quote-block">“approachable, calm under pressure, and a great team player.”</div>
+          <div class="quote-block">“technical skills and professionalism”</div>
           <div class="reference-meta">
             Warren Cresswell<br>
             Asset Performance Leader • INVISTA UK<br>
-            Recommendation letter available on request and linked here
+            Formal recommendation letter linked above
           </div>
         </article>
       </div>
