@@ -1,32 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Mikhail Lyskov engineering portfolio preview</title>
-  <desc id="desc">Social preview card for Mikhail Lyskov engineering portfolio.</desc>
+  <desc id="desc">Social preview card for the Mikhail Lyskov engineering portfolio.</desc>
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#030710"/>
-      <stop offset="50%" stop-color="#07101d"/>
-      <stop offset="100%" stop-color="#030712"/>
+      <stop offset="0%" stop-color="#f7f3ed"/>
+      <stop offset="100%" stop-color="#f1ece5"/>
     </linearGradient>
     <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#69e8ff"/>
-      <stop offset="100%" stop-color="#ffb86a"/>
+      <stop offset="0%" stop-color="#2f5f8d"/>
+      <stop offset="100%" stop-color="#6f94b8"/>
     </linearGradient>
   </defs>
   <rect width="1200" height="630" fill="url(#bg)"/>
-  <g opacity="0.12" stroke="#69e8ff">
-    <path d="M0 90H1200M0 210H1200M0 330H1200M0 450H1200M0 570H1200"/>
-    <path d="M120 0V630M300 0V630M480 0V630M660 0V630M840 0V630M1020 0V630"/>
+  <g opacity="0.08" stroke="#121a26">
+    <path d="M0 110H1200M0 250H1200M0 390H1200M0 530H1200"/>
+    <path d="M120 0V630M320 0V630M520 0V630M720 0V630M920 0V630M1120 0V630"/>
   </g>
-  <circle cx="915" cy="188" r="132" fill="none" stroke="#69e8ff" stroke-opacity="0.15" stroke-width="2"/>
-  <circle cx="915" cy="188" r="210" fill="none" stroke="#69e8ff" stroke-opacity="0.08" stroke-width="2"/>
-  <circle cx="915" cy="188" r="18" fill="#69e8ff" fill-opacity="0.9"/>
-  <path d="M740 340c88-44 149-40 223 18" fill="none" stroke="#69e8ff" stroke-opacity="0.22" stroke-width="3"/>
-  <path d="M802 404c74-28 128-19 201 36" fill="none" stroke="#ffb86a" stroke-opacity="0.16" stroke-width="3"/>
-  <rect x="82" y="84" width="246" height="40" rx="20" fill="#09182d" stroke="#69e8ff" stroke-opacity="0.25"/>
-  <text x="110" y="111" fill="#69e8ff" font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="4">ENGINEERING PORTFOLIO</text>
-  <text x="82" y="248" fill="#eef5ff" font-family="Sora, Arial, sans-serif" font-size="84" font-weight="700">Mikhail Lyskov</text>
-  <text x="82" y="332" fill="#a9bdd7" font-family="Sora, Arial, sans-serif" font-size="40">Projects, data, reliability for modern industrial systems</text>
-  <text x="82" y="438" fill="#dce8f7" font-family="IBM Plex Mono, monospace" font-size="24">University of Sheffield • INVISTA • Automation • Asset Reliability</text>
-  <rect x="82" y="488" width="418" height="54" rx="27" fill="#0a1629" stroke="#69e8ff" stroke-opacity="0.22"/>
-  <text x="112" y="523" fill="#eef5ff" font-family="Sora, Arial, sans-serif" font-size="26">mikhail.lyskov4@gmail.com</text>
+  <rect x="84" y="84" width="250" height="42" rx="21" fill="#ffffff" stroke="#d8dee7"/>
+  <text x="112" y="111" fill="#2f5f8d" font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="4">ENGINEERING PORTFOLIO</text>
+  <text x="84" y="248" fill="#121a26" font-family="Manrope, Arial, sans-serif" font-size="84" font-weight="700">Mikhail Lyskov</text>
+  <text x="84" y="330" fill="#516173" font-family="Manrope, Arial, sans-serif" font-size="42">Practical engineering for modern industrial systems.</text>
+  <rect x="84" y="404" width="462" height="58" rx="29" fill="#ffffff" stroke="#d8dee7"/>
+  <text x="116" y="442" fill="#121a26" font-family="Manrope, Arial, sans-serif" font-size="27">Project delivery • automation • reliability</text>
+  <rect x="84" y="496" width="290" height="42" rx="21" fill="#edf3f8"/>
+  <text x="110" y="523" fill="#2f5f8d" font-family="IBM Plex Mono, monospace" font-size="18" letter-spacing="3">github.com/Mikhail818</text>
+  <rect x="798" y="110" width="260" height="360" rx="32" fill="#121a26"/>
+  <circle cx="928" cy="290" r="120" fill="none" stroke="#2f5f8d" stroke-opacity="0.2" stroke-width="2"/>
+  <circle cx="928" cy="290" r="72" fill="none" stroke="#7aa8d4" stroke-opacity="0.36" stroke-width="2"/>
+  <circle cx="928" cy="290" r="12" fill="#ffffff"/>
+  <path d="M928 170v52M928 358v52M808 290h52M996 290h52M850 212l36 36M1006 212l-36 36M850 368l36-36M1006 368l-36-36" stroke="url(#accent)" stroke-width="6" stroke-linecap="round"/>
 </svg>

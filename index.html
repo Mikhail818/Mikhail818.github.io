@@ -6,7 +6,7 @@
   <title>Mikhail Lyskov | Engineering Portfolio</title>
   <meta name="author" content="Mikhail Lyskov">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#040812">
+  <meta name="theme-color" content="#f5f1ea">
   <meta
     name="description"
     content="Engineering portfolio of Mikhail Lyskov, University of Sheffield General Engineering student with industry experience in project delivery, automation, and asset reliability."
@@ -36,10 +36,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
-  <script type="module" src="https://unpkg.com/@splinetool/viewer@1.12.74/build/spline-viewer.js"></script>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -61,26 +60,19 @@
   </script>
   <style>
     :root {
-      --bg: #040812;
-      --bg-soft: #08111f;
-      --panel: rgba(7, 15, 28, 0.86);
-      --panel-strong: rgba(9, 18, 34, 0.96);
-      --panel-soft: rgba(14, 25, 43, 0.65);
-      --text: #eef5ff;
-      --muted: #8fa2bc;
-      --line: rgba(124, 156, 194, 0.18);
-      --line-strong: rgba(105, 232, 255, 0.28);
-      --accent: #69e8ff;
-      --accent-soft: rgba(105, 232, 255, 0.16);
-      --accent-strong: #12c9ec;
-      --warn: #ffb86a;
-      --danger: #ff7272;
-      --shadow: 0 24px 90px rgba(0, 0, 0, 0.38);
-      --radius-xl: 30px;
-      --radius-lg: 22px;
-      --radius-md: 16px;
-      --content-width: 1220px;
-      --progress: 0%;
+      --bg: #f5f1ea;
+      --surface: rgba(255, 255, 255, 0.84);
+      --surface-strong: #ffffff;
+      --text: #121a26;
+      --muted: #5f6b7b;
+      --line: rgba(18, 26, 38, 0.1);
+      --accent: #2f5f8d;
+      --accent-soft: rgba(47, 95, 141, 0.08);
+      --shadow: 0 22px 60px rgba(28, 34, 44, 0.08);
+      --radius-xl: 34px;
+      --radius-lg: 24px;
+      --radius-md: 18px;
+      --content-width: 1160px;
     }
 
     * {
@@ -93,46 +85,26 @@
 
     body {
       margin: 0;
-      font-family: "Sora", sans-serif;
+      font-family: "Manrope", sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at 15% 10%, rgba(105, 232, 255, 0.12), transparent 22%),
-        radial-gradient(circle at 85% 14%, rgba(255, 184, 106, 0.12), transparent 18%),
-        radial-gradient(circle at 50% 120%, rgba(18, 201, 236, 0.12), transparent 30%),
-        linear-gradient(180deg, #030710 0%, #07101d 38%, #030712 100%);
-      min-height: 100vh;
-      overflow-x: hidden;
+        radial-gradient(circle at top left, rgba(47, 95, 141, 0.08), transparent 24%),
+        radial-gradient(circle at 80% 10%, rgba(18, 26, 38, 0.05), transparent 18%),
+        linear-gradient(180deg, #f7f3ed 0%, #f3efe8 100%);
     }
 
-    body::before,
-    body::after {
+    body::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      z-index: -3;
-    }
-
-    body::before {
-      background-image:
-        linear-gradient(rgba(108, 139, 176, 0.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(108, 139, 176, 0.06) 1px, transparent 1px);
-      background-size: 42px 42px;
-      mask-image: radial-gradient(circle at center, black 45%, transparent 92%);
-      opacity: 0.75;
-    }
-
-    body::after {
       background:
-        repeating-linear-gradient(
-          180deg,
-          rgba(255, 255, 255, 0.015) 0,
-          rgba(255, 255, 255, 0.015) 1px,
-          transparent 1px,
-          transparent 5px
-        );
-      opacity: 0.16;
-      mix-blend-mode: screen;
+        linear-gradient(rgba(18, 26, 38, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(18, 26, 38, 0.02) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: radial-gradient(circle at center, black 40%, transparent 88%);
+      opacity: 0.38;
+      z-index: -1;
     }
 
     a {
@@ -140,72 +112,13 @@
       text-decoration: none;
     }
 
-    button,
-    a {
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    .page-shell {
-      position: relative;
-      isolation: isolate;
-    }
-
-    .network-canvas {
-      position: fixed;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: -2;
-      opacity: 0.95;
-    }
-
-    .ambient-beam,
-    .ambient-ring {
-      position: fixed;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .ambient-beam {
-      inset: 0 auto 0 5%;
-      width: 1px;
-      background: linear-gradient(180deg, transparent, rgba(105, 232, 255, 0.35), transparent);
-      opacity: 0.55;
-    }
-
-    .ambient-ring {
-      width: 34rem;
-      height: 34rem;
-      top: -10rem;
-      right: -12rem;
-      border: 1px solid rgba(105, 232, 255, 0.08);
-      border-radius: 50%;
-      box-shadow:
-        0 0 0 80px rgba(105, 232, 255, 0.02),
-        0 0 0 180px rgba(105, 232, 255, 0.012);
-      opacity: 0.85;
-      transition: box-shadow 300ms ease, border-color 300ms ease;
-    }
-
-    .progress {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: var(--progress);
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--warn));
-      box-shadow: 0 0 18px rgba(105, 232, 255, 0.55);
-      z-index: 100;
-    }
-
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 90;
+      z-index: 20;
       backdrop-filter: blur(18px);
-      background: rgba(3, 8, 18, 0.72);
-      border-bottom: 1px solid rgba(124, 156, 194, 0.1);
+      background: rgba(245, 241, 234, 0.82);
+      border-bottom: 1px solid rgba(18, 26, 38, 0.06);
     }
 
     .nav {
@@ -221,49 +134,36 @@
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.95rem;
+      gap: 0.9rem;
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: -0.02em;
     }
 
     .brand-mark {
       display: grid;
       place-items: center;
-      width: 2.85rem;
-      height: 2.85rem;
-      border-radius: 18px;
+      width: 2.7rem;
+      height: 2.7rem;
+      border-radius: 20px;
+      background: var(--text);
+      color: #fff;
       font-family: "IBM Plex Mono", monospace;
-      font-size: 0.96rem;
-      background:
-        linear-gradient(135deg, rgba(105, 232, 255, 0.18), rgba(105, 232, 255, 0.04)),
-        rgba(255, 255, 255, 0.03);
-      color: var(--accent);
-      border: 1px solid rgba(105, 232, 255, 0.22);
-      box-shadow:
-        inset 0 0 0 1px rgba(255, 255, 255, 0.02),
-        0 0 22px rgba(105, 232, 255, 0.08);
-    }
-
-    .brand-copy small,
-    .eyebrow,
-    .panel-label,
-    .module-id,
-    .section-id,
-    .card-kicker,
-    .timeline-tag {
-      font-family: "IBM Plex Mono", monospace;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
+      font-size: 0.9rem;
     }
 
     .brand-copy {
       display: grid;
-      gap: 0.12rem;
+      gap: 0.1rem;
     }
 
-    .brand-copy small {
+    .brand-copy small,
+    .eyebrow,
+    .kicker {
+      font-family: "IBM Plex Mono", monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
       color: var(--accent);
-      font-size: 0.68rem;
     }
 
     .brand-copy span {
@@ -273,17 +173,13 @@
     .nav-links,
     .nav-actions,
     .hero-actions,
-    .hero-tags,
-    .skill-tags,
-    .info-list,
-    .project-points,
-    .focus-points,
+    .metric-strip,
+    .detail-list,
     .contact-links,
-    .system-chips,
-    .panel-stats {
+    .tag-list {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.8rem;
+      gap: 0.75rem;
     }
 
     .nav-links {
@@ -293,22 +189,7 @@
     }
 
     .nav-links a {
-      position: relative;
-      padding: 0.28rem 0;
-      transition: color 180ms ease;
-    }
-
-    .nav-links a::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -0.1rem;
-      width: 100%;
-      height: 1px;
-      transform: scaleX(0);
-      transform-origin: left;
-      background: linear-gradient(90deg, var(--accent), transparent);
-      transition: transform 180ms ease;
+      transition: color 160ms ease;
     }
 
     .nav-links a:hover,
@@ -316,889 +197,295 @@
       color: var(--text);
     }
 
-    .nav-links a:hover::after,
-    .nav-links a:focus-visible::after {
-      transform: scaleX(1);
-    }
-
-    .button,
-    .ghost-button,
-    .tab-button {
-      appearance: none;
-      border: 0;
-      font: inherit;
-      cursor: pointer;
-      transition:
-        transform 180ms ease,
-        border-color 180ms ease,
-        background 180ms ease,
-        box-shadow 180ms ease,
-        color 180ms ease;
-    }
-
     .button,
     .ghost-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.55rem;
-      min-height: 3rem;
-      padding: 0 1.15rem;
+      min-height: 2.9rem;
+      padding: 0 1.1rem;
       border-radius: 999px;
       font-weight: 600;
+      border: 1px solid transparent;
+      transition:
+        transform 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease,
+        border-color 180ms ease;
     }
 
     .button {
-      background: linear-gradient(135deg, var(--accent), #90f3ff);
-      color: #04111c;
-      box-shadow: 0 14px 32px rgba(105, 232, 255, 0.18);
+      background: var(--text);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(18, 26, 38, 0.12);
     }
 
     .ghost-button {
+      background: rgba(255, 255, 255, 0.64);
+      border-color: rgba(18, 26, 38, 0.1);
       color: var(--text);
-      border: 1px solid rgba(124, 156, 194, 0.18);
-      background: rgba(255, 255, 255, 0.03);
     }
 
     .button:hover,
-    .button:focus-visible,
     .ghost-button:hover,
-    .ghost-button:focus-visible,
-    .tab-button:hover,
-    .tab-button:focus-visible {
-      transform: translateY(-2px);
+    .button:focus-visible,
+    .ghost-button:focus-visible {
+      transform: translateY(-1px);
     }
 
     main {
       width: min(100%, var(--content-width));
       margin: 0 auto;
-      padding: 0 1.5rem 5rem;
+      padding: 2rem 1.5rem 5rem;
     }
 
-    section {
-      padding: 5rem 0;
+    section + section {
+      margin-top: 4.5rem;
     }
 
-    .eyebrow,
-    .section-id {
-      color: var(--accent);
-      font-size: 0.74rem;
+    .hero {
+      display: grid;
+      gap: 1.4rem;
     }
 
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.7rem;
-      margin-bottom: 1rem;
+    .hero-copy {
+      max-width: 44rem;
     }
 
-    .eyebrow::before {
-      content: "";
-      width: 2.4rem;
-      height: 1px;
-      background: linear-gradient(90deg, var(--accent), transparent);
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: end;
-      justify-content: space-between;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .section-heading h2,
     .hero-copy h1,
+    .section-header h2,
     .contact-card h2 {
       margin: 0;
       line-height: 0.95;
-      letter-spacing: -0.055em;
+      letter-spacing: -0.05em;
     }
 
-    .section-heading h2 {
-      font-size: clamp(2.4rem, 4vw, 4rem);
-      max-width: 11ch;
+    .hero-copy h1 {
+      margin-top: 0.85rem;
+      font-size: clamp(3.6rem, 6vw, 5.8rem);
+      max-width: 9ch;
     }
 
-    .section-heading p,
     .hero-copy p,
-    .project-card p,
-    .timeline-content p,
-    .focus-panel p,
-    .text-block p,
-    .education-card p,
-    .contact-card p,
-    .module-copy {
+    .section-header p,
+    .work-card p,
+    .simple-card p,
+    .contact-card p {
       color: var(--muted);
       line-height: 1.7;
       margin: 0;
     }
 
-    .hero {
-      position: relative;
-      overflow: hidden;
-      margin-top: -2rem;
-      padding-top: 2.8rem;
-      padding-bottom: 3rem;
-      min-height: 52rem;
-    }
-
-    .hero-spline-field {
-      position: absolute;
-      top: 0;
-      left: calc(50% - 50vw);
-      width: 100vw;
-      height: 46rem;
-      z-index: 0;
-      pointer-events: auto;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 58%, transparent 100%);
-      -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.92) 58%, transparent 100%);
-    }
-
-    .hero-spline-field::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      pointer-events: none;
-      background:
-        radial-gradient(circle at 68% 34%, rgba(105, 232, 255, 0.16), transparent 24%),
-        radial-gradient(circle at 30% 18%, rgba(255, 184, 106, 0.08), transparent 24%),
-        linear-gradient(180deg, rgba(4, 8, 18, 0.28), rgba(4, 8, 18, 0.72) 78%, rgba(4, 8, 18, 0.96));
-    }
-
-    .hero-spline-shell {
-      position: absolute;
-      inset: 0;
-      transform: scale(1.58) translateY(-6.2rem);
-      transform-origin: center top;
-      filter: saturate(1.08) brightness(1.02);
-      pointer-events: auto;
-    }
-
-    .hero-spline-shell spline-viewer {
-      width: 100%;
-      height: 100%;
-      min-height: 46rem;
-      background: transparent;
-      pointer-events: auto;
-    }
-
-    .hero-spline-meta {
-      position: absolute;
-      top: 6.5rem;
-      right: 2rem;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-      pointer-events: none;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.12fr) minmax(360px, 0.88fr);
-      gap: 1.25rem;
-      align-items: stretch;
-      position: relative;
-      z-index: 2;
-      padding-top: 13rem;
-    }
-
-    .hero-copy {
-      padding-top: 1rem;
-    }
-
-    .hero-copy h1 {
-      font-size: clamp(1.45rem, 2.3vw, 2.35rem);
-      max-width: 12ch;
-    }
-
-    .hero-copy .muted-line {
-      display: block;
-      color: rgba(238, 245, 255, 0.62);
-    }
-
     .hero-copy p {
-      max-width: 50ch;
-      margin-top: 1.35rem;
-      font-size: 0.98rem;
+      margin-top: 1.15rem;
+      max-width: 42rem;
+      font-size: 1.02rem;
     }
 
     .hero-actions {
-      margin-top: 2rem;
+      margin-top: 1.4rem;
     }
 
-    .hero-tags {
-      margin-top: 1.25rem;
-    }
-
-    .tag,
-    .skill-pill,
-    .system-chip {
-      display: inline-flex;
-      align-items: center;
-      min-height: 2.35rem;
-      padding: 0 0.9rem;
-      border-radius: 999px;
-      border: 1px solid rgba(124, 156, 194, 0.16);
-      background: rgba(255, 255, 255, 0.028);
-      color: #c9d7ea;
-      font-size: 0.9rem;
-    }
-
-    .glass-card,
-    .tech-card {
+    .hero-media {
       position: relative;
       overflow: hidden;
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.03), transparent),
-        var(--panel);
-      border: 1px solid rgba(124, 156, 194, 0.13);
       border-radius: var(--radius-xl);
+      background: #0e1520;
+      border: 1px solid rgba(18, 26, 38, 0.08);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(18px);
+      min-height: 29rem;
     }
 
-    .tech-card::before,
-    .glass-card::before {
+    .hero-media::after {
       content: "";
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(135deg, rgba(105, 232, 255, 0.06), transparent 28%),
-        linear-gradient(315deg, rgba(255, 184, 106, 0.03), transparent 30%);
+        linear-gradient(180deg, rgba(14, 21, 32, 0.08), rgba(14, 21, 32, 0.48)),
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.16), transparent 24%);
       pointer-events: none;
     }
 
-    .tech-card::after {
-      content: "";
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      width: 3.6rem;
-      height: 3.6rem;
-      border-top: 1px solid rgba(105, 232, 255, 0.2);
-      border-right: 1px solid rgba(105, 232, 255, 0.2);
-      opacity: 0.55;
-      pointer-events: none;
-    }
-
-    .hero-stack {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .spline-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      min-height: 2rem;
-      padding: 0 0.7rem;
-      border-radius: 999px;
-      font-family: "IBM Plex Mono", monospace;
-      font-size: 0.72rem;
-      color: #d9f9ff;
-      background: rgba(3, 10, 19, 0.68);
-      border: 1px solid rgba(105, 232, 255, 0.16);
-      box-shadow: 0 0 18px rgba(0, 0, 0, 0.16);
-    }
-
-    .spline-badge::before {
-      content: "";
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px rgba(105, 232, 255, 0.38);
-    }
-
-    spline-viewer {
+    .hero-video {
       display: block;
       width: 100%;
       height: 100%;
-      background: transparent;
+      object-fit: cover;
+      min-height: 29rem;
     }
 
-    .mission-card {
-      padding: 1.35rem;
-      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 0 100%);
-    }
-
-    .panel-label {
-      color: var(--accent);
-      font-size: 0.72rem;
-    }
-
-    .mission-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      gap: 1rem;
-    }
-
-    .status-dot {
+    .hero-media-note {
+      position: absolute;
+      left: 1.25rem;
+      bottom: 1.25rem;
+      z-index: 1;
       display: inline-flex;
       align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.7rem;
+      min-height: 2.3rem;
+      padding: 0 0.85rem;
       border-radius: 999px;
+      background: rgba(255, 255, 255, 0.88);
+      color: var(--text);
       font-family: "IBM Plex Mono", monospace;
-      font-size: 0.76rem;
-      color: #d9fff7;
-      background: rgba(30, 212, 146, 0.08);
-      border: 1px solid rgba(30, 212, 146, 0.18);
-      white-space: nowrap;
+      font-size: 0.74rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
-    .status-dot::before {
-      content: "";
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: #2ff6bb;
-      box-shadow: 0 0 12px rgba(47, 246, 187, 0.45);
-    }
-
-    .mission-card h2 {
-      margin: 0.65rem 0 0;
-      font-size: 1.7rem;
-      letter-spacing: -0.04em;
-      max-width: 14ch;
-    }
-
-    .module-copy {
-      margin-top: 0.8rem;
-      max-width: 50ch;
-    }
-
-    .panel-stats {
-      margin-top: 1rem;
-    }
-
-    .panel-stats span {
-      padding: 0.45rem 0.72rem;
-      border-radius: 999px;
-      background: rgba(255, 255, 255, 0.035);
-      border: 1px solid rgba(124, 156, 194, 0.13);
-      color: #d3e0f4;
-      font-size: 0.84rem;
-    }
-
-    .hero-system-grid {
+    .metric-strip {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1rem;
     }
 
-    .module-card {
-      padding: 1.2rem;
-      min-height: 12.5rem;
+    .metric-card,
+    .work-card,
+    .simple-card,
+    .contact-card {
       border-radius: var(--radius-lg);
-      border: 1px solid rgba(124, 156, 194, 0.13);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.025), transparent),
-        rgba(255, 255, 255, 0.025);
+      background: var(--surface);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
-    .module-id {
-      color: var(--muted);
-      font-size: 0.68rem;
+    .metric-card {
+      padding: 1.2rem 1.25rem;
     }
 
-    .module-card strong {
+    .metric-card strong {
       display: block;
-      margin-top: 0.7rem;
-      font-size: 1.65rem;
+      margin-top: 0.45rem;
+      font-size: 1.9rem;
       letter-spacing: -0.05em;
     }
 
-    .module-card p {
-      margin-top: 0.55rem;
+    .metric-card span {
+      display: block;
+      margin-top: 0.25rem;
       color: var(--muted);
       line-height: 1.6;
-      font-size: 0.92rem;
+      font-size: 0.94rem;
     }
 
-    .hero-rail {
-      display: grid;
-      grid-template-columns: 1.12fr 0.88fr;
-      gap: 1.25rem;
-      margin-top: 1.2rem;
-      position: relative;
-      z-index: 2;
-    }
-
-    .telemetry-card,
-    .console-card {
-      padding: 1.35rem;
-    }
-
-    .telemetry-grid {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 0.8rem;
-      margin-top: 1rem;
-    }
-
-    .telemetry-tile {
-      padding: 1rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(124, 156, 194, 0.13);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .telemetry-tile strong {
-      display: block;
-      margin-top: 0.4rem;
-      font-size: 1.3rem;
-      letter-spacing: -0.04em;
-    }
-
-    .telemetry-tile span {
-      display: block;
-      color: var(--muted);
-      font-size: 0.88rem;
-      line-height: 1.5;
-      margin-top: 0.35rem;
-    }
-
-    .console-frame {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-radius: var(--radius-md);
-      background: rgba(1, 6, 13, 0.82);
-      border: 1px solid rgba(105, 232, 255, 0.13);
-      font-family: "IBM Plex Mono", monospace;
-      min-height: 100%;
-    }
-
-    .console-head {
+    .section-header {
       display: flex;
-      align-items: center;
+      align-items: end;
       justify-content: space-between;
       gap: 1rem;
-      color: var(--muted);
-      font-size: 0.74rem;
+      margin-bottom: 1.4rem;
     }
 
-    .console-dots {
-      display: inline-flex;
-      gap: 0.35rem;
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      max-width: 10ch;
     }
 
-    .console-dots span {
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.12);
+    .section-header p {
+      max-width: 34rem;
     }
 
-    .console-dots span:first-child {
-      background: rgba(255, 114, 114, 0.78);
-    }
-
-    .console-dots span:nth-child(2) {
-      background: rgba(255, 184, 106, 0.78);
-    }
-
-    .console-dots span:nth-child(3) {
-      background: rgba(47, 246, 187, 0.78);
-    }
-
-    .console-lines {
-      margin: 0.9rem 0 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.55rem;
-      color: #b8e8f7;
-      font-size: 0.78rem;
-    }
-
-    .console-lines li {
-      opacity: 0.45;
-      transition: opacity 220ms ease, color 220ms ease, transform 220ms ease;
-    }
-
-    .console-lines li.active {
-      opacity: 1;
-      color: #e8fbff;
-      transform: translateX(0.18rem);
-    }
-
-    .console-lines .token {
-      color: var(--accent);
-    }
-
-    .section-block {
-      position: relative;
-    }
-
-    .section-block::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(105, 232, 255, 0.22), transparent 35%);
-      opacity: 0.9;
-    }
-
-    .achievements-grid,
-    .projects-grid,
+    .work-grid,
     .details-grid,
-    .skills-grid,
     .contact-grid {
       display: grid;
       gap: 1rem;
     }
 
-    .achievements-grid {
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-    }
-
-    .achievement-card,
-    .project-card,
-    .text-block,
-    .education-card,
-    .focus-panel,
-    .contact-card,
-    .timeline-content {
-      padding: 1.4rem;
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(124, 156, 194, 0.12);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.022), transparent),
-        rgba(255, 255, 255, 0.028);
-    }
-
-    .achievement-card {
-      min-height: 12rem;
-      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 0 100%);
-    }
-
-    .achievement-card strong {
-      display: block;
-      margin-top: 0.95rem;
-      font-size: clamp(2.15rem, 4vw, 3rem);
-      letter-spacing: -0.06em;
-    }
-
-    .achievement-card p {
-      margin-top: 0.4rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    .projects-grid {
+    .work-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
-    .project-card {
-      display: grid;
-      gap: 1rem;
-      min-height: 100%;
+    .work-card,
+    .simple-card,
+    .contact-card {
+      padding: 1.35rem;
     }
 
-    .card-kicker {
-      color: var(--accent);
-      font-size: 0.72rem;
-    }
-
-    .project-card h3,
-    .education-card h3,
-    .text-block h3,
-    .focus-panel h3,
-    .contact-card h3,
-    .timeline-content h3 {
+    .work-card h3,
+    .simple-card h3,
+    .contact-card h3 {
       margin: 0;
-      font-size: 1.28rem;
-      letter-spacing: -0.035em;
+      font-size: 1.18rem;
+      letter-spacing: -0.03em;
     }
 
-    .project-meta,
-    .timeline-meta,
-    .focus-stat {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-      color: #d8e8f8;
-      font-size: 0.88rem;
+    .work-card p,
+    .simple-card p,
+    .contact-card p {
+      margin-top: 0.65rem;
+      font-size: 0.95rem;
     }
 
-    .project-meta span,
-    .timeline-meta span,
-    .focus-stat span {
-      padding: 0.42rem 0.72rem;
+    .detail-list,
+    .tag-list {
+      margin-top: 0.95rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      min-height: 2.2rem;
+      padding: 0 0.8rem;
       border-radius: 999px;
-      border: 1px solid rgba(124, 156, 194, 0.12);
-      background: rgba(255, 255, 255, 0.04);
+      background: var(--accent-soft);
+      border: 1px solid rgba(47, 95, 141, 0.08);
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 600;
     }
 
-    .snapshot-list,
-    .focus-points,
-    .project-points,
-    .timeline-points,
-    .role-list {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: grid;
-      gap: 0.78rem;
-    }
-
-    .snapshot-list li,
-    .focus-points li,
-    .project-points li,
-    .timeline-points li,
-    .role-list li {
-      position: relative;
-      padding-left: 1.15rem;
-      color: var(--muted);
-      line-height: 1.65;
-    }
-
-    .snapshot-list li::before,
-    .focus-points li::before,
-    .project-points li::before,
-    .timeline-points li::before,
-    .role-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.72rem;
-      width: 0.42rem;
-      height: 0.42rem;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), var(--warn));
-      box-shadow: 0 0 0 0.24rem rgba(105, 232, 255, 0.08);
-    }
-
-    .focus-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.22fr);
-      gap: 1rem;
-      align-items: stretch;
-    }
-
-    .focus-sidebar {
-      display: grid;
-      gap: 0.8rem;
-    }
-
-    .tab-button {
-      text-align: left;
-      padding: 1rem 1.1rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(124, 156, 194, 0.12);
-      background:
-        linear-gradient(180deg, rgba(255, 255, 255, 0.02), transparent),
-        rgba(255, 255, 255, 0.02);
-      color: var(--muted);
-    }
-
-    .tab-button strong,
-    .tab-button span {
-      display: block;
-    }
-
-    .tab-button strong {
-      color: var(--text);
-      font-size: 1rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .tab-button.active {
-      color: #d8efff;
-      border-color: rgba(105, 232, 255, 0.28);
-      background:
-        linear-gradient(145deg, rgba(105, 232, 255, 0.14), rgba(105, 232, 255, 0.03)),
-        rgba(255, 255, 255, 0.02);
-      box-shadow: 0 18px 40px rgba(2, 10, 21, 0.26);
-    }
-
-    .focus-panel {
-      background:
-        radial-gradient(circle at top right, rgba(105, 232, 255, 0.1), transparent 26%),
-        rgba(255, 255, 255, 0.026);
-    }
-
-    .focus-panel p {
-      margin-top: 0.9rem;
-      max-width: 58ch;
-    }
-
-    .focus-stat {
-      margin-top: 1rem;
-    }
-
-    .timeline {
-      display: grid;
-      gap: 1rem;
-      position: relative;
-    }
-
-    .timeline::before {
-      content: "";
-      position: absolute;
-      left: 1.05rem;
-      top: 0.6rem;
-      bottom: 0.6rem;
-      width: 1px;
-      background: linear-gradient(180deg, rgba(105, 232, 255, 0.22), rgba(124, 156, 194, 0.04));
-    }
-
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 2.2rem minmax(0, 1fr);
-      gap: 1rem;
-    }
-
-    .timeline-dot {
-      position: relative;
-      z-index: 1;
-      width: 2.1rem;
-      height: 2.1rem;
-      border-radius: 50%;
-      margin-top: 1rem;
-      background: radial-gradient(circle at 35% 35%, #ebfbff, var(--accent));
-      box-shadow:
-        0 0 0 0.36rem rgba(105, 232, 255, 0.08),
-        0 14px 24px rgba(3, 8, 18, 0.3);
-    }
-
-    .timeline-content p {
-      margin-top: 0.85rem;
-    }
-
-    .details-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .info-list {
-      margin-top: 1rem;
-    }
-
-    .skills-grid {
-      grid-template-columns: 1.15fr 0.85fr;
-    }
-
-    .skill-group + .skill-group {
-      margin-top: 1.35rem;
-    }
-
-    .skill-group h3 {
-      margin: 0 0 0.8rem;
-      font-size: 1rem;
-      letter-spacing: -0.01em;
-    }
-
-    .system-map {
-      margin-top: 1.2rem;
-      padding: 1rem;
-      border-radius: var(--radius-md);
-      border: 1px solid rgba(124, 156, 194, 0.12);
-      background: rgba(255, 255, 255, 0.025);
-    }
-
-    .system-map-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.75rem;
-      margin-top: 0.8rem;
-    }
-
-    .system-node {
-      padding: 0.9rem;
-      border-radius: 14px;
-      border: 1px solid rgba(124, 156, 194, 0.1);
-      background: rgba(255, 255, 255, 0.03);
-    }
-
-    .system-node strong {
-      display: block;
-      font-size: 0.96rem;
-      margin-bottom: 0.28rem;
-    }
-
-    .system-node span {
-      color: var(--muted);
-      font-size: 0.86rem;
-      line-height: 1.5;
-    }
-
+    .details-grid,
     .contact-grid {
-      grid-template-columns: 1.12fr 0.88fr;
-      align-items: stretch;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .contact-card h2 {
-      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      font-size: clamp(2rem, 4vw, 3.2rem);
     }
 
-    .contact-card p {
-      margin-top: 1rem;
-      max-width: 56ch;
+    .contact-links {
+      margin-top: 1.1rem;
     }
 
     .contact-link {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      min-height: 2.8rem;
-      padding: 0 1rem;
+      justify-content: center;
+      min-height: 2.7rem;
+      padding: 0 0.95rem;
       border-radius: 999px;
-      border: 1px solid rgba(124, 156, 194, 0.12);
-      background: rgba(255, 255, 255, 0.04);
-      color: #d9e7f8;
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid var(--line);
+      color: var(--text);
+      font-weight: 600;
     }
 
     .footer-note {
-      padding: 2rem 0 0;
+      margin-top: 2rem;
+      color: var(--muted);
+      font-size: 0.86rem;
       text-align: center;
-      color: rgba(143, 162, 188, 0.82);
-      font-size: 0.9rem;
-      font-family: "IBM Plex Mono", monospace;
-      letter-spacing: 0.06em;
     }
 
-    .reveal {
-      opacity: 0;
-      transform: translateY(26px);
-      transition:
-        opacity 650ms ease,
-        transform 650ms ease;
-    }
+    @media (max-width: 980px) {
+      .nav,
+      main {
+        padding-inline: 1.1rem;
+      }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @media (max-width: 1100px) {
-      .hero-grid,
-      .hero-rail,
-      .focus-layout,
-      .skills-grid,
-      .contact-grid,
-      .details-grid {
+      .section-header,
+      .details-grid,
+      .contact-grid {
         grid-template-columns: 1fr;
       }
 
-      .achievements-grid,
-      .projects-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .work-grid {
+        grid-template-columns: 1fr;
       }
 
-      .section-heading {
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .telemetry-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .metric-strip {
+        grid-template-columns: 1fr;
       }
     }
 
@@ -1209,16 +496,16 @@
 
       .nav {
         flex-wrap: wrap;
-        padding: 0.9rem 1rem 1rem;
+        gap: 0.8rem;
+        padding-top: 0.9rem;
+        padding-bottom: 0.95rem;
       }
 
       .nav-links {
         order: 3;
         width: 100%;
         overflow-x: auto;
-        padding: 0.1rem 0 0.3rem;
-        gap: 0.9rem;
-        font-size: 0.86rem;
+        white-space: nowrap;
         scrollbar-width: none;
       }
 
@@ -1229,71 +516,32 @@
       .nav-actions {
         width: 100%;
         display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 0.55rem;
+        grid-template-columns: 1fr;
       }
 
       .nav-actions .button,
-      .nav-actions .ghost-button {
+      .nav-actions .ghost-button,
+      .hero-actions .button,
+      .hero-actions .ghost-button,
+      .contact-link {
         width: 100%;
-        min-height: 2.85rem;
-        padding: 0 0.7rem;
-        font-size: 0.84rem;
+      }
+
+      main {
+        padding-top: 1.2rem;
+        padding-bottom: 3.5rem;
+      }
+
+      section + section {
+        margin-top: 3.4rem;
       }
 
       .hero-copy h1 {
-        font-size: clamp(1.25rem, 4.8vw, 1.85rem);
-      }
-
-      .hero {
-        min-height: auto;
-        margin-top: -1.3rem;
-        padding-top: 1.3rem;
-        padding-bottom: 2.2rem;
-      }
-
-      .hero-spline-field {
-        top: 0;
-        left: calc(50% - 50vw);
-        width: 100vw;
-        height: 20rem;
-      }
-
-      .hero-spline-shell {
-        transform: scale(1.45) translateY(-1.9rem);
-      }
-
-      .hero-spline-shell spline-viewer {
-        min-height: 20rem;
-      }
-
-      .hero-spline-meta {
-        top: 4.2rem;
-        right: 0.8rem;
-        gap: 0.45rem;
-      }
-
-      .hero-grid {
-        padding-top: 7.2rem;
-        gap: 0.9rem;
-      }
-
-      .hero-copy {
-        padding-top: 0.35rem;
+        font-size: clamp(2.3rem, 10vw, 3.5rem);
       }
 
       .hero-copy p {
-        max-width: none;
-        font-size: 0.93rem;
-        line-height: 1.62;
-      }
-
-      .hero-actions,
-      .hero-tags,
-      .panel-stats,
-      .info-list,
-      .contact-links {
-        gap: 0.6rem;
+        font-size: 0.95rem;
       }
 
       .hero-actions {
@@ -1301,1105 +549,208 @@
         grid-template-columns: 1fr;
       }
 
-      .hero-actions .button,
-      .hero-actions .ghost-button {
-        width: 100%;
-        justify-content: center;
+      .hero-media,
+      .hero-video {
+        min-height: 18rem;
       }
 
-      .hero-tags .tag,
-      .info-list .tag,
-      .panel-stats span,
-      .project-meta span,
-      .timeline-meta span,
-      .focus-stat span,
-      .skill-pill,
-      .contact-link {
-        width: 100%;
-        justify-content: center;
+      .section-header {
+        margin-bottom: 1.1rem;
       }
 
-      .hero-stack {
-        gap: 0.85rem;
-      }
-
-      .mission-top,
-      .snapshot-title,
-      .console-head {
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .mission-card h2,
-      .contact-card h2 {
+      .section-header h2 {
         max-width: none;
+        font-size: clamp(1.7rem, 8vw, 2.45rem);
       }
 
-      .module-card,
-      .achievement-card,
-      .project-card,
-      .education-card,
-      .timeline-content,
-      .focus-panel,
-      .text-block,
+      .work-card,
+      .simple-card,
       .contact-card,
-      .telemetry-card,
-      .console-card {
-        padding: 1.1rem;
+      .metric-card {
+        padding: 1.15rem;
       }
 
-      .module-card {
-        min-height: 0;
-      }
-
-      .telemetry-grid {
-        gap: 0.7rem;
-      }
-
-      .telemetry-tile {
-        padding: 0.9rem;
-      }
-
-      .console-frame {
-        padding: 0.85rem;
-      }
-
-      .console-lines {
-        font-size: 0.72rem;
-      }
-
-      .section-heading {
-        gap: 0.85rem;
-        margin-bottom: 1.35rem;
-      }
-
-      .section-heading h2 {
-        max-width: none;
-        font-size: clamp(1.7rem, 7vw, 2.35rem);
-      }
-
-      .section-heading p {
-        font-size: 0.92rem;
-        line-height: 1.62;
-      }
-
-      .focus-sidebar {
-        gap: 0.65rem;
-      }
-
-      .tab-button {
-        padding: 0.9rem 0.95rem;
-      }
-
-      .timeline::before {
-        left: 0.8rem;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1.7rem minmax(0, 1fr);
-        gap: 0.75rem;
-      }
-
-      .timeline-dot {
-        width: 1.55rem;
-        height: 1.55rem;
-      }
-
-      .system-map {
-        padding: 0.9rem;
-      }
-
-      .achievements-grid,
-      .projects-grid,
-      .hero-system-grid,
-      .telemetry-grid,
-      .system-map-grid {
+      .detail-list,
+      .tag-list,
+      .contact-links {
+        display: grid;
         grid-template-columns: 1fr;
-      }
-
-      main {
-        padding-inline: 1rem;
-      }
-
-      section {
-        padding: 3.4rem 0;
-      }
-    }
-
-    @media (max-width: 520px) {
-      .site-header {
-        backdrop-filter: blur(14px);
-      }
-
-      .brand {
-        gap: 0.75rem;
-      }
-
-      .brand-mark {
-        width: 2.45rem;
-        height: 2.45rem;
-        font-size: 0.82rem;
-      }
-
-      .brand-copy span {
-        font-size: 0.88rem;
-      }
-
-      .brand-copy small,
-      .panel-label,
-      .module-id,
-      .section-id,
-      .card-kicker,
-      .eyebrow {
-        letter-spacing: 0.12em;
-      }
-
-      .nav-actions {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        padding-bottom: 1.9rem;
-      }
-
-      .hero-spline-field {
-        height: 17.5rem;
-      }
-
-      .hero-spline-shell {
-        transform: scale(1.34) translateY(-0.8rem);
-      }
-
-      .hero-spline-shell spline-viewer {
-        min-height: 17.5rem;
-      }
-
-      .hero-spline-meta {
-        top: 3.8rem;
-        left: 1rem;
-        right: auto;
-        flex-direction: column;
-        align-items: start;
-      }
-
-      .hero-grid {
-        padding-top: 6.1rem;
-      }
-
-      .hero-copy h1 {
-        font-size: 1.15rem;
-        line-height: 1.05;
-        max-width: 13ch;
-      }
-
-      .hero-copy p,
-      .module-copy,
-      .contact-card p,
-      .project-card p,
-      .timeline-content p,
-      .focus-panel p,
-      .text-block p,
-      .education-card p {
-        font-size: 0.9rem;
-      }
-
-      .hero-tags .tag,
-      .info-list .tag,
-      .skill-pill,
-      .contact-link {
-        min-height: 2.6rem;
-        font-size: 0.84rem;
-      }
-
-      .mission-card,
-      .achievement-card {
-        clip-path: none;
-      }
-
-      .tech-card::after {
-        width: 2.5rem;
-        height: 2.5rem;
-      }
-
-      .contact-card h2 {
-        font-size: clamp(1.7rem, 9vw, 2.2rem);
-      }
-
-      .footer-note {
-        font-size: 0.76rem;
-        letter-spacing: 0.04em;
-      }
-
-      .ambient-beam,
-      .ambient-ring {
-        display: none;
       }
     }
   </style>
 </head>
 <body>
-  <div class="progress" aria-hidden="true"></div>
-  <canvas class="network-canvas" id="network-canvas" aria-hidden="true"></canvas>
-  <div class="page-shell">
-    <div class="ambient-beam" aria-hidden="true"></div>
-    <div class="ambient-ring" aria-hidden="true"></div>
+  <header class="site-header">
+    <nav class="nav">
+      <a class="brand" href="#top" aria-label="Go to top">
+        <span class="brand-mark">ML</span>
+        <span class="brand-copy">
+          <small>Engineering Portfolio</small>
+          <span>Mikhail Lyskov</span>
+        </span>
+      </a>
 
-    <header class="site-header">
-      <nav class="nav">
-        <a class="brand" href="#top" aria-label="Go to top">
-          <span class="brand-mark">ML</span>
-          <span class="brand-copy">
-            <small>System Profile</small>
-            <span>Mikhail Lyskov</span>
-          </span>
-        </a>
+      <div class="nav-links" aria-label="Section navigation">
+        <a href="#work">Work</a>
+        <a href="#details">Details</a>
+        <a href="#contact">Contact</a>
+      </div>
 
-        <div class="nav-links" aria-label="Section navigation">
-          <a href="#work">Work</a>
-          <a href="#focus">Focus</a>
-          <a href="#timeline">Timeline</a>
-          <a href="#education">Education</a>
-          <a href="#contact">Contact</a>
+      <div class="nav-actions">
+        <a class="ghost-button" href="https://github.com/Mikhail818" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="ghost-button" href="https://www.linkedin.com/in/mikhail-lyskov" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="button" href="assets/Mikhail_Lyskov_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow">General Engineering</div>
+        <h1>Practical engineering for modern industrial systems.</h1>
+        <p>
+          I’m Mikhail Lyskov, a University of Sheffield engineering student with industry experience across project delivery,
+          automation, and asset reliability. I like building systems that are useful, measurable, and easy to trust.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button" href="#work">Selected work</a>
+          <a class="ghost-button" href="mailto:mikhail.lyskov4@gmail.com">mikhail.lyskov4@gmail.com</a>
         </div>
+      </div>
 
-        <div class="nav-actions">
-          <a class="ghost-button" href="https://github.com/Mikhail818" target="_blank" rel="noreferrer">GitHub</a>
-          <a class="ghost-button" href="https://www.linkedin.com/in/mikhail-lyskov" target="_blank" rel="noreferrer">LinkedIn</a>
-          <a class="button" href="assets/Mikhail_Lyskov_CV.pdf" target="_blank" rel="noreferrer">Download CV</a>
+      <div class="hero-media">
+        <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+          <source src="assets/signal.mp4" type="video/mp4">
+        </video>
+        <div class="hero-media-note">Signal Interface</div>
+      </div>
+
+      <div class="metric-strip" aria-label="Key metrics">
+        <article class="metric-card">
+          <div class="kicker">Project scope</div>
+          <strong>£100k+</strong>
+          <span>Managed international engineering work across budget, timeline, and risk controls.</span>
+        </article>
+        <article class="metric-card">
+          <div class="kicker">Operational rollout</div>
+          <strong>3 sites</strong>
+          <span>Dashboards and apps deployed for live use across multiple locations and regions.</span>
+        </article>
+        <article class="metric-card">
+          <div class="kicker">Leadership scale</div>
+          <strong>140+ members</strong>
+          <span>Led technical society growth, sponsorship, and event coordination.</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Selected Work</div>
+          <h2>Three areas that define how I work.</h2>
         </div>
-      </nav>
-    </header>
+        <p>Short version: delivery, systems, and reliability. That is where I am strongest today.</p>
+      </div>
 
-    <main id="top">
-      <section class="hero">
-        <div class="hero-spline-field" aria-hidden="true">
-          <div class="hero-spline-meta">
-            <div class="panel-label">Robotics Interface</div>
-            <div class="spline-badge">Spline active</div>
+      <div class="work-grid">
+        <article class="work-card">
+          <div class="kicker">INVISTA</div>
+          <h3>Project delivery</h3>
+          <p>Exposure to capital-project thinking, cross-functional coordination, and decision-making tied to value, not just execution.</p>
+          <div class="tag-list">
+            <span class="tag">Budgets</span>
+            <span class="tag">Timelines</span>
+            <span class="tag">Risk</span>
           </div>
-          <div class="hero-spline-shell">
-            <spline-viewer url="https://prod.spline.design/nJ5JqmtvZOQPo0Vx/scene.splinecode"></spline-viewer>
+        </article>
+
+        <article class="work-card">
+          <div class="kicker">Digital Systems</div>
+          <h3>Automation and reporting</h3>
+          <p>Built dashboards and Power Apps that reduced friction, improved visibility, and supported plant-level decisions.</p>
+          <div class="tag-list">
+            <span class="tag">Power Platform</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Excel</span>
           </div>
-        </div>
+        </article>
 
-        <div class="hero-grid">
-          <div class="hero-copy reveal visible">
-            <div class="eyebrow">Future-facing engineering</div>
-            <h1>
-              Projects, data, reliability
-              <span class="muted-line">for modern industrial systems</span>
-            </h1>
-            <p>
-              I’m Mikhail Lyskov, a General Engineering student at the University of Sheffield with industry experience at INVISTA,
-              focused on building practical engineering systems across delivery, automation, and asset performance.
-            </p>
-
-            <div class="hero-actions">
-              <a class="button" href="#work">View engineered outcomes</a>
-              <a class="ghost-button" href="mailto:mikhail.lyskov4@gmail.com">mikhail.lyskov4@gmail.com</a>
-            </div>
-
-            <div class="hero-tags" aria-label="Core themes">
-              <span class="tag">Project Delivery</span>
-              <span class="tag">Operational Data</span>
-              <span class="tag">Reliability Systems</span>
-              <span class="tag">Leadership Under Pressure</span>
-            </div>
+        <article class="work-card">
+          <div class="kicker">Reliability</div>
+          <h3>Practical performance</h3>
+          <p>Improved preventive thinking, analytical fault-finding, and operator-focused support in real manufacturing settings.</p>
+          <div class="tag-list">
+            <span class="tag">Maintenance</span>
+            <span class="tag">LoRaWAN</span>
+            <span class="tag">Asset support</span>
           </div>
+        </article>
+      </div>
+    </section>
 
-          <div class="hero-stack reveal visible">
-            <article class="mission-card tech-card">
-              <div class="mission-top">
-                <div>
-                  <div class="panel-label">Mission Profile</div>
-                  <h2>Engineer with a bias for useful systems and measurable impact.</h2>
-                </div>
-                <span class="status-dot">Open to ambitious roles</span>
-              </div>
+    <section id="details">
+      <div class="section-header">
+        <div>
+          <div class="eyebrow">Details</div>
+          <h2>Clear signals, not a long story.</h2>
+        </div>
+        <p>The site stays concise, but these are the details that matter most if you are evaluating fit.</p>
+      </div>
 
-              <p class="module-copy">
-                Expected First Class Honours, industry placement exposure, and a practical style shaped by manufacturing, technical societies, and operational problem-solving.
-              </p>
-
-              <div class="panel-stats">
-                <span>BEng General Engineering</span>
-                <span>University of Sheffield</span>
-                <span>Industry placement complete</span>
-              </div>
-            </article>
-
-            <div class="hero-system-grid">
-              <article class="module-card tech-card">
-                <div class="module-id">Node 01</div>
-                <strong>£100k+</strong>
-                <p>Managed international engineering work across budget, schedule, and risk controls.</p>
-              </article>
-              <article class="module-card tech-card">
-                <div class="module-id">Node 02</div>
-                <strong>3 sites</strong>
-                <p>Digital dashboards deployed for live use across multiple sites in two regions.</p>
-              </article>
-              <article class="module-card tech-card">
-                <div class="module-id">Node 03</div>
-                <strong>140+ members</strong>
-                <p>Led a growing technical society and increased participation by more than 50%.</p>
-              </article>
-              <article class="module-card tech-card">
-                <div class="module-id">Node 04</div>
-                <strong>3 languages</strong>
-                <p>English, Greek, and Russian for communication across technical and cultural contexts.</p>
-              </article>
-            </div>
+      <div class="details-grid">
+        <article class="simple-card">
+          <div class="kicker">Education</div>
+          <h3>University of Sheffield</h3>
+          <p>BEng General Engineering with Year in Industry, expected First Class Honours.</p>
+          <div class="detail-list">
+            <span class="tag">International Merit Scholarship</span>
+            <span class="tag">2x Engineering Excellence Award</span>
+            <span class="tag">Power Engineering</span>
           </div>
-        </div>
+        </article>
 
-        <div class="hero-rail reveal">
-          <article class="telemetry-card tech-card">
-            <div class="panel-label">Telemetry Overview</div>
-            <div class="telemetry-grid">
-              <div class="telemetry-tile">
-                <div class="module-id">Current build</div>
-                <strong>BEng + Placement</strong>
-                <span>Academic depth with direct manufacturing exposure.</span>
-              </div>
-              <div class="telemetry-tile">
-                <div class="module-id">Systems stack</div>
-                <strong>Python to Power Apps</strong>
-                <span>Comfortable moving between analysis, automation, and reporting.</span>
-              </div>
-              <div class="telemetry-tile">
-                <div class="module-id">Reliability mode</div>
-                <strong>Preventive first</strong>
-                <span>Analytical fault finding and asset-support thinking.</span>
-              </div>
-              <div class="telemetry-tile">
-                <div class="module-id">Communication</div>
-                <strong>Senior-ready</strong>
-                <span>Comfortable presenting technical work as value and action.</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="console-card tech-card">
-            <div class="panel-label">Execution Console</div>
-            <div class="console-frame" aria-label="Animated engineering console">
-              <div class="console-head">
-                <span class="console-dots" aria-hidden="true"><span></span><span></span><span></span></span>
-                <span>portfolio://mikhail-lyskov/runtime.log</span>
-              </div>
-              <ul class="console-lines" id="console-lines">
-                <li class="active"><span class="token">&gt;</span> ingesting plant-floor data streams and reporting inputs</li>
-                <li><span class="token">&gt;</span> mapping engineering work to budget, schedule, and risk outputs</li>
-                <li><span class="token">&gt;</span> deploying operator-friendly dashboards and support apps</li>
-                <li><span class="token">&gt;</span> tuning maintenance strategy for stronger asset reliability</li>
-                <li><span class="token">&gt;</span> presenting results to stakeholders in decision-ready form</li>
-              </ul>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-block" aria-labelledby="impact-title">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">Impact Matrix</div>
-            <h2 id="impact-title">Measured engineering signals.</h2>
+        <article class="simple-card">
+          <div class="kicker">Tools</div>
+          <h3>Technical stack</h3>
+          <p>Python, MATLAB, Excel, Power BI, Power Apps, basic SQL, Siemens PLC programming.</p>
+          <div class="detail-list">
+            <span class="tag">Python</span>
+            <span class="tag">MATLAB</span>
+            <span class="tag">Power Apps</span>
+            <span class="tag">PLC</span>
           </div>
-          <p>These figures come directly from project work, team leadership, and operational environments where output had to be visible.</p>
-        </div>
+        </article>
+      </div>
+    </section>
 
-        <div class="achievements-grid">
-          <article class="achievement-card tech-card reveal">
-            <div class="section-id">Signal 01</div>
-            <strong class="count" data-prefix="£" data-value="100" data-suffix="k+">£0</strong>
-            <p>International engineering project ownership across budgets, timelines, and risk management.</p>
-          </article>
-          <article class="achievement-card tech-card reveal">
-            <div class="section-id">Signal 02</div>
-            <strong class="count" data-value="3" data-suffix=" sites">0</strong>
-            <p>Dashboards used live across multiple manufacturing locations and regions.</p>
-          </article>
-          <article class="achievement-card tech-card reveal">
-            <div class="section-id">Signal 03</div>
-            <strong class="count" data-value="140" data-suffix="+ members">0</strong>
-            <p>Society leadership scale with strong growth, coordination, and external engagement.</p>
-          </article>
-          <article class="achievement-card tech-card reveal">
-            <div class="section-id">Signal 04</div>
-            <strong class="count" data-value="1000" data-suffix="+ people">0</strong>
-            <p>Training reach across a highly international audience in safety-critical instruction.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="work" class="section-block" aria-labelledby="work-title">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">Selected Work</div>
-            <h2 id="work-title">Projects with systems thinking built in.</h2>
+    <section id="contact">
+      <div class="contact-grid">
+        <article class="contact-card">
+          <div class="eyebrow">Contact</div>
+          <h2>Open to ambitious engineering teams.</h2>
+          <p>
+            I’m most interested in roles where technical depth, ownership, and operational impact all matter.
+          </p>
+          <div class="contact-links">
+            <a class="contact-link" href="mailto:mikhail.lyskov4@gmail.com">Email</a>
+            <a class="contact-link" href="https://github.com/Mikhail818" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="contact-link" href="https://www.linkedin.com/in/mikhail-lyskov" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="contact-link" href="assets/Mikhail_Lyskov_CV.pdf" target="_blank" rel="noreferrer">CV</a>
           </div>
-          <p>The content is still CV-grounded, but structured here as engineering modules with inputs, constraints, and visible outputs.</p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="project-card tech-card reveal">
-            <div class="card-kicker">INVISTA | Module A</div>
-            <h3>Manufacturing dashboards and workflow automation</h3>
-            <p>Designed digital tools that reduced reporting friction, improved visibility, and supported data-driven operational and investment decisions.</p>
-            <div class="project-meta">
-              <span>Power Platform</span>
-              <span>Dashboards</span>
-              <span>Financial modelling</span>
-            </div>
-            <ul class="project-points">
-              <li>Built reporting systems used live across 3 sites in 2 regions.</li>
-              <li>Turned plant data into clearer operational and financial visibility.</li>
-              <li>Delivered 3 targeted Power Apps around asset management and technician support.</li>
-            </ul>
-          </article>
-
-          <article class="project-card tech-card reveal">
-            <div class="card-kicker">UKSEDS | Module B</div>
-            <h3>Dual-deployment rocketry recovery system</h3>
-            <p>Developed a distinctive reefed parachute recovery concept for the National Rocketry Championship using iterative technical judgement.</p>
-            <div class="project-meta">
-              <span>Aerospace systems</span>
-              <span>Performance tuning</span>
-              <span>Deadline control</span>
-            </div>
-            <ul class="project-points">
-              <li>Reworked second-stage deployment behaviour to improve descent performance.</li>
-              <li>Reduced parachute descent velocity by almost 50% in the second stage.</li>
-              <li>Delivered under strict team and competition timing constraints.</li>
-            </ul>
-          </article>
-
-          <article class="project-card tech-card reveal">
-            <div class="card-kicker">National Guard | Module C</div>
-            <h3>Fleet logbook digitisation and performance tracking</h3>
-            <p>Converted a manual record-keeping process into a clearer operational tracking system with stronger visibility and less friction.</p>
-            <div class="project-meta">
-              <span>Excel systems</span>
-              <span>Process redesign</span>
-              <span>Operational analytics</span>
-            </div>
-            <ul class="project-points">
-              <li>Digitised a manual logbook process in a constrained operating context.</li>
-              <li>Improved fleet management visibility and efficiency calculations.</li>
-              <li>Built confidence in simple tools that operators can actually sustain.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="focus" class="section-block" aria-labelledby="focus-title">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">Engineering Modes</div>
-            <h2 id="focus-title">Switch the lens, keep the same standard.</h2>
-          </div>
-          <p>This panel lets the site behave more like a systems dashboard, changing the framing around how I approach engineering problems.</p>
-        </div>
-
-        <div class="focus-layout">
-          <div class="focus-sidebar reveal" role="tablist" aria-label="Engineering focus areas">
-            <button class="tab-button active" type="button" data-focus="capital" role="tab" aria-selected="true">
-              <strong>Capital Projects</strong>
-              <span>Budgets, timelines, risk, value creation</span>
-            </button>
-            <button class="tab-button" type="button" data-focus="digital" role="tab" aria-selected="false">
-              <strong>Digital Systems</strong>
-              <span>Dashboards, automation, adoption on site</span>
-            </button>
-            <button class="tab-button" type="button" data-focus="reliability" role="tab" aria-selected="false">
-              <strong>Reliability</strong>
-              <span>Preventive maintenance and fault finding</span>
-            </button>
-            <button class="tab-button" type="button" data-focus="leadership" role="tab" aria-selected="false">
-              <strong>Leadership</strong>
-              <span>Teams, funding, communication, resilience</span>
-            </button>
-          </div>
-
-          <article class="focus-panel tech-card reveal">
-            <div class="panel-label" id="focus-kicker">Value-driven execution</div>
-            <h3 id="focus-heading">Capital-project thinking with plant-level practicality</h3>
-            <p id="focus-copy">
-              At INVISTA, I worked close to how global engineering organisations evaluate projects, allocate capital, manage risk, and translate technical work into long-term value.
-            </p>
-            <div class="focus-stat" id="focus-stat">
-              <span>£100k+ scope</span>
-              <span>Cross-functional delivery</span>
-              <span>Europe + US coordination</span>
-            </div>
-            <ul class="focus-points" id="focus-points">
-              <li>Coordinated engineering work across functions while keeping budgets, timelines, and risks visible.</li>
-              <li>Presented ideas to senior management in a form that linked technical effort to business value.</li>
-              <li>Built exposure to how strong engineering execution supports capital allocation and return thinking.</li>
-            </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="timeline" class="section-block" aria-labelledby="timeline-title">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">Build Log</div>
-            <h2 id="timeline-title">Experience accumulated through real constraints.</h2>
-          </div>
-          <p>The through-line is consistent: improve the system, reduce ambiguity, and carry responsibility through to delivery.</p>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item reveal">
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <article class="timeline-content tech-card">
-              <div class="timeline-meta">
-                <span>07/2024 to 08/2025</span>
-                <span>INVISTA · Gloucester</span>
-              </div>
-              <h3>Engineering Placement</h3>
-              <p>Delivered engineering value through project coordination, reliability improvements, digital tooling, and communication with senior stakeholders.</p>
-              <ul class="timeline-points">
-                <li>Introduced maintenance and analytical fault-finding improvements to strengthen asset reliability.</li>
-                <li>Presented LoRaWAN monitoring ideas to management to support stronger decision making.</li>
-                <li>Worked in a value-creation environment where engineering had to justify itself in practical terms.</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <article class="timeline-content tech-card">
-              <div class="timeline-meta">
-                <span>03/2023 to 07/2024</span>
-                <span>Sheffield Space Initiative Society</span>
-              </div>
-              <h3>Vice President</h3>
-              <p>Led a fast-growing technical society, coordinated activity, and secured external support from aerospace companies, institutions, and individuals.</p>
-              <ul class="timeline-points">
-                <li>Secured more than £2,000 in funding and sponsorship.</li>
-                <li>Increased membership by more than 50% while supporting a 140+ member community.</li>
-                <li>Strengthened stakeholder management, public speaking, and operational coordination.</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <article class="timeline-content tech-card">
-              <div class="timeline-meta">
-                <span>09/2022 to 09/2023</span>
-                <span>UKSEDS · Sheffield</span>
-              </div>
-              <h3>National Rocketry Championship Recovery Engineer</h3>
-              <p>Applied technical creativity and execution discipline to a demanding systems problem where performance and timing both mattered.</p>
-              <ul class="timeline-points">
-                <li>Developed a distinctive dual-deployment reefed parachute recovery approach.</li>
-                <li>Balanced experimentation with the demands of competition deadlines.</li>
-                <li>Reinforced a habit of solving hard problems through iteration rather than abstraction alone.</li>
-              </ul>
-            </article>
-          </div>
-
-          <div class="timeline-item reveal">
-            <div class="timeline-dot" aria-hidden="true"></div>
-            <article class="timeline-content tech-card">
-              <div class="timeline-meta">
-                <span>06/2018 to 09/2021</span>
-                <span>Sparti Platres Rope Adventure Park · Cyprus</span>
-              </div>
-              <h3>Equipment Safety Instructor</h3>
-              <p>Built disciplined communication by teaching safety procedures clearly and consistently to a highly international audience.</p>
-              <ul class="timeline-points">
-                <li>Trained more than 1,000 visitors from 30 different countries.</li>
-                <li>Adapted explanations quickly across cultures and experience levels.</li>
-                <li>Learned how clarity and trust affect real-world performance in real time.</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section id="education" class="section-block" aria-labelledby="education-title">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">Education</div>
-            <h2 id="education-title">Technical foundation with strong signal quality.</h2>
-          </div>
-          <p>Broad engineering study, strong analytical grades, and academic awards give the technical base behind the portfolio narrative.</p>
-        </div>
-
-        <div class="details-grid">
-          <article class="education-card tech-card reveal">
-            <div class="card-kicker">Academic Core | 2022 to 2026</div>
-            <h3>BEng General Engineering with Year in Industry</h3>
-            <p>University of Sheffield, expected First Class Honours. Third-year modules include Accounting and Law for Engineers, Nuclear Science Engineering and Technology, Power Engineering, and an Individual Investigative Project.</p>
-            <div class="info-list">
-              <span class="tag">International Merit Scholarship</span>
-              <span class="tag">2x Engineering Excellence Award</span>
-              <span class="tag">Global Engineering Challenge Distinction</span>
-            </div>
-          </article>
-
-          <article class="education-card tech-card reveal">
-            <div class="card-kicker">Analytical Base | 2007 to 2021</div>
-            <h3>A-Level foundation</h3>
-            <p>Completed Further Mathematics, Mathematics, Physics, and Computer Science with top grades, forming a strong quantitative foundation for engineering work.</p>
-            <div class="info-list">
-              <span class="tag">Further Mathematics A*</span>
-              <span class="tag">Mathematics A*</span>
-              <span class="tag">Physics A*</span>
-              <span class="tag">Computer Science AS A</span>
-              <span class="tag">Chemistry AS A</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section-block" aria-labelledby="skills-title">
-        <div class="section-heading reveal">
-          <div>
-            <div class="eyebrow">Capability Stack</div>
-            <h2 id="skills-title">Engineering toolkit with operational range.</h2>
-          </div>
-          <p>The aim is not just technical knowledge, but technical knowledge that can be turned into something adopted, useful, and decision-relevant.</p>
-        </div>
-
-        <div class="skills-grid">
-          <article class="text-block tech-card reveal">
-            <div class="skill-group">
-              <h3>Technical and analytical</h3>
-              <div class="skill-tags">
-                <span class="skill-pill">Python</span>
-                <span class="skill-pill">MATLAB</span>
-                <span class="skill-pill">SQL basics</span>
-                <span class="skill-pill">Excel</span>
-                <span class="skill-pill">Power BI</span>
-                <span class="skill-pill">Power Apps</span>
-                <span class="skill-pill">Siemens PLC Programming</span>
-              </div>
-            </div>
-
-            <div class="skill-group">
-              <h3>Commercial and data awareness</h3>
-              <div class="skill-tags">
-                <span class="skill-pill">Engineering Economics</span>
-                <span class="skill-pill">Data Visualisation</span>
-                <span class="skill-pill">Financial Modelling</span>
-                <span class="skill-pill">Capital Allocation Awareness</span>
-              </div>
-            </div>
-
-            <div class="skill-group">
-              <h3>Languages</h3>
-              <div class="skill-tags">
-                <span class="skill-pill">English</span>
-                <span class="skill-pill">Greek</span>
-                <span class="skill-pill">Russian</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="text-block tech-card reveal">
-            <h3>System architecture beyond technical tools</h3>
-            <p>I also bring coaching, society leadership, and interest in financial markets and digital innovation. That combination shapes how I think about engineering decisions: not as isolated calculations, but as systems that affect people, operations, and outcomes.</p>
-
-            <div class="system-map">
-              <div class="panel-label">Operating Map</div>
-              <div class="system-map-grid">
-                <div class="system-node">
-                  <strong>Technical depth</strong>
-                  <span>Engineering study, data tools, and problem-solving under technical constraints.</span>
-                </div>
-                <div class="system-node">
-                  <strong>Commercial awareness</strong>
-                  <span>Interest in markets, investment logic, and value-focused decision framing.</span>
-                </div>
-                <div class="system-node">
-                  <strong>Leadership</strong>
-                  <span>Teams, coaching, stakeholder communication, and visible ownership.</span>
-                </div>
-                <div class="system-node">
-                  <strong>Adaptability</strong>
-                  <span>Comfort across plant, academic, and public-facing environments.</span>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="contact" class="section-block" aria-labelledby="contact-title">
-        <div class="contact-grid">
-          <article class="contact-card tech-card reveal">
-            <div class="eyebrow">Contact</div>
-            <h2 id="contact-title">Looking for work where engineering has operational weight.</h2>
-            <p>
-              If you’re hiring for a role that values ownership, technical breadth, and the ability to turn analysis into practical action, I’d be interested in the conversation.
-            </p>
-            <div class="contact-links">
-              <a class="contact-link" href="mailto:mikhail.lyskov4@gmail.com">mikhail.lyskov4@gmail.com</a>
-              <a class="contact-link" href="https://github.com/Mikhail818" target="_blank" rel="noreferrer">GitHub</a>
-              <a class="contact-link" href="https://www.linkedin.com/in/mikhail-lyskov" target="_blank" rel="noreferrer">LinkedIn</a>
-              <a class="contact-link" href="assets/Mikhail_Lyskov_CV.pdf" target="_blank" rel="noreferrer">CV</a>
-            </div>
-          </article>
-
-          <article class="contact-card tech-card reveal">
-            <div class="panel-label">Best-fit environments</div>
-            <h3>Where this profile is strongest</h3>
-            <ul class="role-list" style="margin-top: 1rem;">
-              <li>Graduate engineering roles with project ownership and plant-level responsibility.</li>
-              <li>Operations or manufacturing teams using digital tooling to unlock performance.</li>
-              <li>Engineering organisations that expect clarity, discipline, and initiative.</li>
-            </ul>
-          </article>
-        </div>
-
-        <div class="footer-note">Single-page portfolio designed for GitHub Pages deployment.</div>
-      </section>
-    </main>
-  </div>
-
-  <script>
-    const root = document.documentElement;
-    const counters = document.querySelectorAll(".count");
-    const revealElements = document.querySelectorAll(".reveal");
-    const tabButtons = document.querySelectorAll(".tab-button");
-    const consoleLines = document.querySelectorAll("#console-lines li");
-    const ambientRing = document.querySelector(".ambient-ring");
-    const networkCanvas = document.getElementById("network-canvas");
-
-    const focusContent = {
-      capital: {
-        kicker: "Value-driven execution",
-        heading: "Capital-project thinking with plant-level practicality",
-        copy: "At INVISTA, I worked close to how global engineering organisations evaluate projects, allocate capital, manage risk, and translate technical work into long-term value.",
-        stats: ["£100k+ scope", "Cross-functional delivery", "Europe + US coordination"],
-        points: [
-          "Coordinated engineering work across functions while keeping budgets, timelines, and risks visible.",
-          "Presented ideas to senior management in a form that linked technical effort to business value.",
-          "Built exposure to how strong engineering execution supports capital allocation and return thinking."
-        ],
-        accent: "#69e8ff"
-      },
-      digital: {
-        kicker: "Low-friction systems",
-        heading: "Digital tools that people will actually use on site",
-        copy: "I focus on systems that improve visibility and decision quality without creating unnecessary process overhead for operators or teams.",
-        stats: ["3 live sites", "Power Platform", "Reporting automation"],
-        points: [
-          "Built dashboards used live across multiple sites and regions, not just for reporting but for action.",
-          "Deployed three targeted Power Apps shaped around technician support and asset-management needs.",
-          "Used digital tools to reduce inefficiency and support financial modelling and investment discussions."
-        ],
-        accent: "#79f7d4"
-      },
-      reliability: {
-        kicker: "Operational resilience",
-        heading: "Reliability improvements grounded in maintenance reality",
-        copy: "My reliability approach combines analytical fault finding with preventive thinking so engineering improvements hold up in day-to-day operations.",
-        stats: ["Preventive strategies", "LoRaWAN monitoring", "Asset support"],
-        points: [
-          "Introduced new preventive maintenance strategies to improve asset risk and reliability.",
-          "Applied analytical fault-finding methods rather than relying on reactive fixes alone.",
-          "Explored wireless monitoring tools to improve awareness before issues escalated into downtime."
-        ],
-        accent: "#ffb86a"
-      },
-      leadership: {
-        kicker: "Execution through people",
-        heading: "Leading teams, funding, and communication under pressure",
-        copy: "Across student leadership, sport, and customer-facing roles, I’ve learned that engineering results depend on trust, clarity, and disciplined follow-through.",
-        stats: ["140+ members", "£2,000+ funding", "30-country audience"],
-        points: [
-          "Led a society community of more than 140 members and helped grow participation by over 50%.",
-          "Secured sponsorship and funding from aerospace companies, institutions, and individuals.",
-          "Built communication strength by teaching and coaching diverse groups in high-accountability environments."
-        ],
-        accent: "#ff8a8a"
-      }
-    };
-
-    const focusKicker = document.getElementById("focus-kicker");
-    const focusHeading = document.getElementById("focus-heading");
-    const focusCopy = document.getElementById("focus-copy");
-    const focusStat = document.getElementById("focus-stat");
-    const focusPoints = document.getElementById("focus-points");
-
-    function updateProgress() {
-      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = scrollable > 0 ? (window.scrollY / scrollable) * 100 : 0;
-      root.style.setProperty("--progress", progress + "%");
-    }
-
-    function animateCounter(counter) {
-      const target = Number(counter.dataset.value || 0);
-      const prefix = counter.dataset.prefix || "";
-      const suffix = counter.dataset.suffix || "";
-      const duration = 1400;
-      const start = performance.now();
-
-      function frame(now) {
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const value = Math.round(target * eased);
-        counter.textContent = prefix + value.toLocaleString() + suffix;
-        if (progress < 1) {
-          requestAnimationFrame(frame);
-        }
-      }
-
-      requestAnimationFrame(frame);
-    }
-
-    const counterObserver = new IntersectionObserver((entries, observer) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
-        animateCounter(entry.target);
-        observer.unobserve(entry.target);
-      });
-    }, { threshold: 0.5 });
-
-    counters.forEach((counter) => counterObserver.observe(counter));
-
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-        }
-      });
-    }, { threshold: 0.16 });
-
-    revealElements.forEach((element) => {
-      if (!element.classList.contains("visible")) {
-        revealObserver.observe(element);
-      }
-    });
-
-    function setFocus(key) {
-      const content = focusContent[key];
-      if (!content) {
-        return;
-      }
-
-      focusKicker.textContent = content.kicker;
-      focusHeading.textContent = content.heading;
-      focusCopy.textContent = content.copy;
-      focusStat.innerHTML = content.stats.map((item) => "<span>" + item + "</span>").join("");
-      focusPoints.innerHTML = content.points.map((item) => "<li>" + item + "</li>").join("");
-      root.style.setProperty("--accent", content.accent);
-
-      if (ambientRing) {
-        ambientRing.style.borderColor = content.accent + "22";
-        ambientRing.style.boxShadow =
-          "0 0 0 80px " + content.accent + "08, 0 0 0 180px " + content.accent + "04";
-      }
-    }
-
-    function initNetworkEffect() {
-      if (!networkCanvas) {
-        return;
-      }
-
-      const context = networkCanvas.getContext("2d");
-      if (!context) {
-        return;
-      }
-
-      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const points = [];
-      const pointer = {
-        x: 0,
-        y: 0,
-        active: false
-      };
-      let width = 0;
-      let height = 0;
-      let animationFrame = 0;
-      const pointCount = window.innerWidth < 760 ? 24 : 42;
-
-      function resizeCanvas() {
-        const ratio = Math.min(window.devicePixelRatio || 1, 2);
-        width = window.innerWidth;
-        height = window.innerHeight;
-        networkCanvas.width = width * ratio;
-        networkCanvas.height = height * ratio;
-        context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      }
-
-      function seedPoints() {
-        points.length = 0;
-        for (let index = 0; index < pointCount; index += 1) {
-          points.push({
-            x: Math.random() * width,
-            y: Math.random() * height,
-            vx: (Math.random() - 0.5) * (reducedMotion ? 0.06 : 0.22),
-            vy: (Math.random() - 0.5) * (reducedMotion ? 0.06 : 0.22),
-            radius: Math.random() * 1.8 + 0.8
-          });
-        }
-      }
-
-      function draw() {
-        context.clearRect(0, 0, width, height);
-        const lowerBandStart = height * 0.48;
-        const lowerBandActive = pointer.active && pointer.y >= lowerBandStart;
-
-        for (let index = 0; index < points.length; index += 1) {
-          const point = points[index];
-
-          point.x += point.vx;
-          point.y += point.vy;
-
-          if (lowerBandActive) {
-            const dxPointer = pointer.x - point.x;
-            const dyPointer = pointer.y - point.y;
-            const pointerDistance = Math.sqrt(dxPointer * dxPointer + dyPointer * dyPointer);
-            const interactionRadius = 210;
-
-            if (pointerDistance < interactionRadius && pointerDistance > 0) {
-              const force = (1 - pointerDistance / interactionRadius) * (reducedMotion ? 0.12 : 0.45);
-              point.x -= (dxPointer / pointerDistance) * force;
-              point.y -= (dyPointer / pointerDistance) * force;
-            }
-          }
-
-          if (point.x <= 0 || point.x >= width) {
-            point.vx *= -1;
-          }
-          if (point.y <= 0 || point.y >= height) {
-            point.vy *= -1;
-          }
-
-          context.beginPath();
-          context.fillStyle = "rgba(105, 232, 255, 0.8)";
-          context.shadowBlur = 12;
-          context.shadowColor = "rgba(105, 232, 255, 0.18)";
-          context.arc(point.x, point.y, point.radius, 0, Math.PI * 2);
-          context.fill();
-        }
-
-        context.shadowBlur = 0;
-
-        if (lowerBandActive) {
-          const bandAlpha = Math.min((pointer.y - lowerBandStart) / (height - lowerBandStart), 1);
-          context.beginPath();
-          context.fillStyle = "rgba(105, 232, 255, " + (bandAlpha * 0.08) + ")";
-          context.arc(pointer.x, pointer.y, 110, 0, Math.PI * 2);
-          context.fill();
-        }
-
-        for (let i = 0; i < points.length; i += 1) {
-          for (let j = i + 1; j < points.length; j += 1) {
-            const a = points[i];
-            const b = points[j];
-            const dx = a.x - b.x;
-            const dy = a.y - b.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            const maxDistance = lowerBandActive ? 190 : 170;
-            if (distance > maxDistance) {
-              continue;
-            }
-
-            const alpha = 1 - distance / maxDistance;
-            context.beginPath();
-            context.strokeStyle = "rgba(105, 232, 255, " + (alpha * (lowerBandActive ? 0.22 : 0.16)) + ")";
-            context.lineWidth = alpha * 1.1;
-            context.moveTo(a.x, a.y);
-            context.lineTo(b.x, b.y);
-            context.stroke();
-          }
-        }
-
-        if (lowerBandActive) {
-          points.forEach((point) => {
-            const dxPointer = pointer.x - point.x;
-            const dyPointer = pointer.y - point.y;
-            const distance = Math.sqrt(dxPointer * dxPointer + dyPointer * dyPointer);
-
-            if (distance > 150) {
-              return;
-            }
-
-            const alpha = 1 - distance / 150;
-            context.beginPath();
-            context.strokeStyle = "rgba(255, 184, 106, " + (alpha * 0.24) + ")";
-            context.lineWidth = alpha;
-            context.moveTo(pointer.x, pointer.y);
-            context.lineTo(point.x, point.y);
-            context.stroke();
-          });
-        }
-
-        animationFrame = window.requestAnimationFrame(draw);
-      }
-
-      resizeCanvas();
-      seedPoints();
-      draw();
-
-      window.addEventListener("resize", () => {
-        window.cancelAnimationFrame(animationFrame);
-        resizeCanvas();
-        seedPoints();
-        draw();
-      });
-
-      window.addEventListener("mousemove", (event) => {
-        pointer.x = event.clientX;
-        pointer.y = event.clientY;
-        pointer.active = true;
-      });
-
-      window.addEventListener("mouseleave", () => {
-        pointer.active = false;
-      });
-
-      window.addEventListener("touchmove", (event) => {
-        const touch = event.touches[0];
-        if (!touch) {
-          return;
-        }
-        pointer.x = touch.clientX;
-        pointer.y = touch.clientY;
-        pointer.active = true;
-      }, { passive: true });
-
-      window.addEventListener("touchend", () => {
-        pointer.active = false;
-      });
-    }
-
-    tabButtons.forEach((button) => {
-      button.addEventListener("click", () => {
-        tabButtons.forEach((item) => {
-          item.classList.remove("active");
-          item.setAttribute("aria-selected", "false");
-        });
-        button.classList.add("active");
-        button.setAttribute("aria-selected", "true");
-        setFocus(button.dataset.focus);
-      });
-    });
-
-    if (consoleLines.length) {
-      let activeIndex = 0;
-      setInterval(() => {
-        consoleLines[activeIndex].classList.remove("active");
-        activeIndex = (activeIndex + 1) % consoleLines.length;
-        consoleLines[activeIndex].classList.add("active");
-      }, 1700);
-    }
-
-    initNetworkEffect();
-    updateProgress();
-    window.addEventListener("scroll", updateProgress, { passive: true });
-  </script>
+        </article>
+
+        <article class="contact-card">
+          <div class="kicker">Profile</div>
+          <h3>Best fit</h3>
+          <p>Graduate engineering, operations, manufacturing, digital transformation, reliability, and project delivery roles.</p>
+        </article>
+      </div>
+
+      <div class="footer-note">Built as a focused GitHub Pages portfolio.</div>
+    </section>
+  </main>
 </body>
 </html>
