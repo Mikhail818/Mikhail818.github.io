@@ -526,7 +526,7 @@
     }
 
     .work-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       align-items: stretch;
     }
 
@@ -633,6 +633,21 @@
       pointer-events: none;
     }
 
+    .torqen-preview {
+      display: grid;
+      place-items: center;
+      padding: 1.2rem;
+      background: #fff;
+    }
+
+    .torqen-logo {
+      display: block;
+      width: min(100%, 11rem);
+      max-height: 6rem;
+      object-fit: contain;
+      object-position: center;
+    }
+
     .work-card:hover .work-preview,
     .work-card:focus-within .work-preview {
       transform: scale(1.01);
@@ -657,6 +672,34 @@
     .work-card:focus-within .work-extra {
       opacity: 1;
       transform: translateY(0);
+    }
+
+    .work-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: max-content;
+      max-width: 100%;
+      min-height: 2.35rem;
+      margin-top: 0.95rem;
+      padding: 0 0.85rem;
+      border-radius: 999px;
+      background: rgba(18, 26, 38, 0.92);
+      color: #fff;
+      font-size: 0.86rem;
+      line-height: 1.4;
+      font-weight: 600;
+      transition:
+        transform 260ms var(--ease-premium),
+        box-shadow 260ms var(--ease-premium),
+        background 260ms var(--ease-premium);
+    }
+
+    .work-link:hover,
+    .work-link:focus-visible {
+      transform: translateY(-1px) scale(1.02);
+      background: var(--accent);
+      box-shadow: 0 14px 24px rgba(47, 95, 141, 0.18);
     }
 
     .reference-meta {
@@ -1079,10 +1122,26 @@
           <div class="eyebrow">Selected Work</div>
           <h2>Work with clear operational outcomes.</h2>
         </div>
-        <p>Three examples of how I approach project delivery, digital systems, and plant performance.</p>
+        <p>Four examples of how I approach product building, project delivery, digital systems, and plant performance.</p>
       </div>
 
       <div class="work-grid">
+        <article class="work-card" data-reveal style="--reveal-delay: 60ms;">
+          <div class="work-preview torqen-preview">
+            <img class="torqen-logo" src="assets/torqen-logo.png" alt="Torqen logo">
+          </div>
+          <div class="kicker">Torqen</div>
+          <h3>Built a motor maintenance platform for factories</h3>
+          <p>Created a browser-based tool that tracks motor runtime, service limits, alerts, and AI maintenance recommendations.</p>
+          <div class="tag-list">
+            <span class="tag">Motor maintenance</span>
+            <span class="tag">Claude AI</span>
+            <span class="tag">GDPR-ready</span>
+          </div>
+          <a class="work-link" href="https://torqen.app" target="_blank" rel="noreferrer">View Torqen</a>
+          <div class="work-extra">Designed for teams that need practical maintenance planning without sensors, hardware, or enterprise setup.</div>
+        </article>
+
         <article class="work-card featured" data-reveal style="--reveal-delay: 80ms;">
           <div class="work-preview preview-video">
             <video autoplay muted loop playsinline preload="metadata" aria-label="Custom report video preview">
