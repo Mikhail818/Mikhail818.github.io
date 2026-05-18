@@ -633,19 +633,24 @@
       pointer-events: none;
     }
 
-    .torqen-preview {
+    .app-logo-preview {
       display: grid;
       place-items: center;
       padding: 1.2rem;
       background: #fff;
     }
 
-    .torqen-logo {
+    .project-logo {
       display: block;
       width: min(100%, 11rem);
       max-height: 6rem;
       object-fit: contain;
       object-position: center;
+    }
+
+    .tenniscy-logo {
+      width: min(100%, 10.2rem);
+      max-height: 7.2rem;
     }
 
     .work-card:hover .work-preview,
@@ -1122,13 +1127,13 @@
           <div class="eyebrow">Selected Work</div>
           <h2>Work with clear operational outcomes.</h2>
         </div>
-        <p>Four examples of how I approach product building, project delivery, digital systems, and plant performance.</p>
+        <p>Five examples of how I approach product building, project delivery, digital systems, and plant performance.</p>
       </div>
 
       <div class="work-grid">
         <article class="work-card" data-reveal style="--reveal-delay: 60ms;">
-          <div class="work-preview torqen-preview">
-            <img class="torqen-logo" src="assets/torqen-logo.png" alt="Torqen logo">
+          <div class="work-preview app-logo-preview">
+            <img class="project-logo" src="assets/torqen-logo.png" alt="Torqen logo">
           </div>
           <div class="kicker">Torqen</div>
           <h3>Built a motor maintenance platform for factories</h3>
@@ -1142,7 +1147,23 @@
           <div class="work-extra">Designed for teams that need practical maintenance planning without sensors, hardware, or enterprise setup.</div>
         </article>
 
-        <article class="work-card featured" data-reveal style="--reveal-delay: 80ms;">
+        <article class="work-card" data-reveal style="--reveal-delay: 80ms;">
+          <div class="work-preview app-logo-preview">
+            <img class="project-logo tenniscy-logo" src="assets/tenniscy-logo.png" alt="TennisCY logo">
+          </div>
+          <div class="kicker">TennisCY</div>
+          <h3>Built a Cyprus tennis player discovery app</h3>
+          <p>Created an iOS-focused platform for matching players by level, finding courts, and tracking rankings.</p>
+          <div class="tag-list">
+            <span class="tag">iOS app</span>
+            <span class="tag">Player matching</span>
+            <span class="tag">Court map</span>
+          </div>
+          <a class="work-link" href="https://tenniscy.app" target="_blank" rel="noreferrer">View TennisCY</a>
+          <div class="work-extra">Built around the practical Cyprus tennis problem: finding the right partner and a court quickly.</div>
+        </article>
+
+        <article class="work-card featured" data-reveal style="--reveal-delay: 120ms;">
           <div class="work-preview preview-video">
             <video autoplay muted loop playsinline preload="metadata" aria-label="Custom report video preview">
               <source src="assets/work-report.mp4" type="video/mp4">
@@ -1159,7 +1180,7 @@
           <div class="work-extra">Cross-functional coordination, risk framing, and vendor-facing delivery in a live operational setting.</div>
         </article>
 
-        <article class="work-card offset" data-reveal style="--reveal-delay: 160ms;">
+        <article class="work-card offset" data-reveal style="--reveal-delay: 180ms;">
           <div class="work-preview preview-video">
             <video autoplay muted loop playsinline preload="metadata" aria-label="Animated dashboard video preview">
               <source src="assets/work-dashboards.mp4" type="video/mp4">
@@ -1176,7 +1197,7 @@
           <div class="work-extra">Structured data flows and operator-facing tools designed for day-to-day use, not just presentation.</div>
         </article>
 
-        <article class="work-card" data-reveal style="--reveal-delay: 220ms;">
+        <article class="work-card" data-reveal style="--reveal-delay: 240ms;">
           <div class="work-preview preview-video">
             <video autoplay muted loop playsinline preload="metadata" aria-label="Business team discussion video preview">
               <source src="assets/work-team.mp4" type="video/mp4">
